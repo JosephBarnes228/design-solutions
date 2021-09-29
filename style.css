@@ -1,0 +1,25 @@
+#main-img {
+    width: 100%;
+    filter: brightness(0.6);
+}
+
+#big-text {
+    font-size: 5vw;
+    width: 100%;
+    position: absolute;
+    top: 12vw;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+}
+
+#subtitle {
+    position: absolute;
+    color: white;
+    top: 28vw;
+    font-size: 1.2rem;
+    font-weight: 100;
+    width: 53%;
+    padding-left: 25%;
+    text-align: center;
+}
