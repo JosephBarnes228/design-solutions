@@ -108,15 +108,62 @@ li a:hover {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
+#footer {
+    background-color: #273845;
+    color: lightgray;
+    padding: 1rem 2rem;
+    font-size: .8rem;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#footer h4 {
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#footer a {
+    color: lightgray;
+    text-decoration: none;
+    padding-bottom: .75rem;
+}
+
+#footer a:hover {
+    color: white;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-copyright {
+    background-color: #273845;
+    color: lightgray;
+    display: flex;
+    justify-content: center;
+    font-weight: normal;
+    font-size: .8rem;
+    padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
     #header {
         position: fixed;
         top: 0;
+        height: 5rem;
         width: 100%;
     }
-    #header-img {
-        height: 35%;
-        margin-top: 4.5rem;
+    #navbar {
+        height: 5rem;
+        justify-content: space-between;
+    }
+    .hamburger {
+        padding-right: 1rem;
+        padding-bottom: .4rem;
     }
     .links {
         display: none;
@@ -139,7 +186,7 @@ li a:hover {
     }
     .links.responsive {
         display: grid !important;
-        background-color: white;
+        background-color: #273845;
         width: 100%;
         position: absolute !important;
         top: 4.5rem;
@@ -156,12 +203,12 @@ li a:hover {
         font-size: 1.2rem !important;
     }
     #logo {
-        width: 3rem;
+        width: 7.5rem;
     }
     .bars div {
         width: 35px;
         height: 5px;
-        background-color: rgb(87, 87, 87);
+        background-color: white;
         margin: .3rem 0;
         border: none;
         border-radius: 20%;
@@ -170,5 +217,9 @@ li a:hover {
         text-align: center;
         margin-right: 0;
         line-height: 2rem;
+    }
+
+    #footer {
+        flex-direction: column;
     }
   }
