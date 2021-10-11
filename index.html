@@ -14,7 +14,28 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
     </head>
     <body>
-        <div w3-include-html="/header.html"></div>
+        <div id='header' class="header">
+            <ul id="navbar">
+                <li id='header-logo'><img id='logo' src="/img/logo.gif" onclick="window.location='/'"></li>
+                <div id='links' class="links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/services/index.html">Services</a></li>
+                    <li><a href="/contact/index.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/about/index.html">About</a></li>
+                    <li><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
+                    <li><img id="facebook" src="/img/facebook.png" onclick="window.open('https://www.facebook.com/pages/Design-Solutions/398235000223867', '_blank')"></li>
+                    <li><button id="header-contact">Contact Us</button></li>
+                </div>
+                <li>
+                    <div class="bars" onclick="displayLinks()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                  </div>
+                </li>
+            </ul>
+        </div>
         <div id="header-img"></div>
 
         <div id="content">
@@ -27,9 +48,44 @@
                 Design Solutions has been designing innovative and beautiful homes in the Vancouver/Portland area for over 16 years.
             </p>
         </div>
-        
-        <script>
-            w3IncludeHTML();
-        </script>
+        <div id="content-info-container">
+            <div id="content-info">
+                <h3>Why do I need a home designer?</h3>
+                <p>
+                    Many people enjoy sketching house plans and fondly recall their high school drafting class. Some may even go so far as to purchase
+                    a generic home design program from their local office supply store. Most people should stop at this point. No architectural software
+                    can adequately address energy efficiency, local codes, or create a structure that effectively uses materials. The end product can waste
+                    enormous amounts of material and space while ignoring site conditions, views, budgets, and neighboring homes.
+                </p>
+                <p>
+                    With architectural training and construction experience we understand how structure, conservation of materials, space planning, and
+                    aesthetics meld together to satisfy the objectives given by the client. Often clients will generate a drawing or find home plans from
+                    the internet that are in total disagreement with their stated priorities. We emphasize a back and forth synergy between the interior
+                    (plan view) and the exterior (elevations) as well as a relationship between site specific elements and budgetary constraints to achieve
+                    a harmonious, functional design that exceeds the clients original goals.
+                </p>
+            </div>
+            <img src="img/software.jpg">
+        </div>
+        <div>
+            <div class="services-container">
+                <div class="services-img-container">
+                    <img class="services" src="img/custom-plan.jpg">
+                    <div class="services-text">Custom Plans</div>
+                </div>
+                <div class="services-img-container">
+                    <img class="services" src="img/remodel.jpg">
+                    <div class="services-text">Remodels</div>
+                </div>
+                <div class="services-img-container">
+                    <img class="services" src="img/blueprint.jpg">
+                    <div class="services-text">Stock Plans</div>
+                </div>
+                <div class="services-img-container">
+                    <img class="services" src="img/site-design.jpg">
+                    <div class="services-text">Site Design</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
