@@ -122,8 +122,15 @@
 }
 
 @media only screen and (max-width: 800px) {
+    #header {
+        z-index: 1;
+    }
+    
     #content-info-container {
         margin-right: 1rem;
+        margin-top: 3.2rem;
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     #content-info {
@@ -146,9 +153,7 @@
     }
 
     #big-text {
-        z-index: -1;
-        top: 5rem;
-        font-size: 12vw;
+        display: none;
     }
 
     #main-img {
@@ -176,7 +181,6 @@
     .services-container {
         margin-left: 1rem;
         margin-right: 1rem;
-        justify-content: center;
     }
 
     .services {
@@ -190,7 +194,6 @@
 
     .services-img-container {
         margin-right: 1rem;
-        z-index: -1;
     }
 
     .services-img-container:nth-child(2) {
