@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Design Solutions</title>
+        <meta name="description" content="">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="/styles/globalStyles.css">
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="http://www.w3schools.com/lib/w3data.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="/styles/headerDisplay.js"></script>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+    </head>
+    <body>
+        <!--HEADER-->
+        <div id='header' class="header">
+            <ul id="navbar">
+                <li id='header-logo'><img id='logo' src="/img/logo.gif" onclick="window.location='/'"></li>
+                <div id='links' class="links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/services/index.html">Services</a></li>
+                    <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/about/index.html">About</a></li>
+                    <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
+                    <li class="mobile-invis"><img id="facebook" src="/img/facebook.png" onclick="window.open('https://www.facebook.com/pages/Design-Solutions/398235000223867', '_blank')"></li>
+                    <li class="mobile-invis"><button id="header-contact">Contact Us</button></li>
+                </div>
+                <li class="hamburger">
+                    <div class="bars" onclick="displayLinks()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <!--END HEADER-->
+        <div id="content-info-container">
+            <div id="content-info">
+                <h3>Timber Framing</h3>
+                <img src="/img/timber-framing.jpg">
+                <p>
+                    Timber frame construction provides a sense of warmth, longevity, and artistry that surpasses traditional building methods. With structural members crafted from large timbers connected with mortise and tenon joinery, you immediately experience the craftsmanship and simplicity that these homes boast. Whether you seek a traditional, contemporary, or rustic atmosphere, timber frames allow for tremendous design flexibility and individuality.
+                </p>
+                <p>
+                    With large timbers forming the structural frame one can choose to “fill in” the body of the home with conventional 2×6 construction or with Structural Insulated Panels (SIP’s). Timber hybrids are popular for those on tighter budgets, who want to incorporate timbers in the front entry, the great room trusses, or even a covered rear porch. More modest budgets may opt to use accents such as mantles, corbels, or light blocks.
+                </p>
+                <p>
+                    Timber framing is an art as much as it is a science. As when selecting the architect or residential designer, one must carefully select the timber frame company who will be instrumental in creating the right feel of the home. Not all timber frame contractors posses an artistic bent. Too often, garden variety contractors implement large beams and columns that do not compliment the balance or style of the home. Porches with gaudy hardware and disproportioned beam to column arrangements are all too common. While we do not typically recommend a specific company, we have great respect for a local company called Arrow Timber Framing. They synthesize the budget, setting and architectural style of the home to create true works of art.
+                </p>
+            </div>
+        </div>
+
+        <!--FOOTER-->
+        <div id="footer">
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/contact">Contact</a>
+                <a href="/blog">Blog</a>
+                <a href="/about">About</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
+                <a href="tel:3606935161">360.693.5161</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow</h4>
+                <a href="https://www.facebook.com/pages/Design-Solutions/398235000223867">Facebook</a>
+                <a href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
+            </div>
+        </div>
+        <div id="footer-copyright">© Copyright Design Solutions - 2012-2021</div>
+        <!--END FOOTER-->
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Design Solutions</title>
+        <meta name="description" content="">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="/styles/globalStyles.css">
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="http://www.w3schools.com/lib/w3data.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="/styles/headerDisplay.js"></script>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+    </head>
+    <body>
+        <!--HEADER-->
+        <div id='header' class="header">
+            <ul id="navbar">
+                <li id='header-logo'><img id='logo' src="/img/logo.gif" onclick="window.location='/'"></li>
+                <div id='links' class="links">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/services/index.html">Services</a></li>
+                    <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/about/index.html">About</a></li>
+                    <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
+                    <li class="mobile-invis"><img id="facebook" src="/img/facebook.png" onclick="window.open('https://www.facebook.com/pages/Design-Solutions/398235000223867', '_blank')"></li>
+                    <li class="mobile-invis"><button id="header-contact">Contact Us</button></li>
+                </div>
+                <li class="hamburger">
+                    <div class="bars" onclick="displayLinks()">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <!--END HEADER-->
+        <div id="content-info-container">
+            <div id="content-info">
+                <h3>Passive Solar</h3>
+                <img src="/img/passive-solar.jpg">
+                <p>
+                    Five elements function together to successfully create a passive solar home.
+                </p>
+                <p>
+                    <b>Aperture:</b> Windows or “glazing” play an extremely important role in keeping heat in or out of a building. Ideal orientation for solar glazing is within five degrees of true south. This means that the building should be placed in an east-west direction with the majority of glazing facing south. A typical home design will have about twenty five percent southern facing windows which amounts to approximately three percent of the total floor area. A passive solar home increases this to about seven percent. Glazing facing east or west can create overheating problems in warmer climates. Strategic placement of operable windows in relation to predictable wind flow enhances cross ventilation in the summer. Northern facing windows lose significant heat energy in almost any climate and do not provide any solar gain. Triple glazing (three panels of glass) or low-e (emissive) coatings prevent heat loss on northern exposures. Tinted glass is effective for western facing windows. Obviously not all homes can be situated in a southern exposure and views and room brightness need to be well thought through.
+                </p>
+                <p>
+                    <b>Absorber:</b> Any material that falls within the sun’s path and absorbs heat functions as an absorber. Dark flooring tile, a masonry wall, or water containers serve this purpose. 
+                </p>
+                <p>
+                    <b>Thermal mass:</b> A thermal mass retains the heat collected by the absorber. Materials such as concrete slabs, masonry, or any dense material absorbs heat by day and releases it back into the home during the night. These materials do not need to be dark or face the sun. The thermal mass can double as the absorber. 
+                </p>
+                <p>
+                    <b>Heat distribution:</b> Collected heat circulates through a home in three primary ways: Convection, conduction, and radiation. Convection involves the mixing of warm and cool air by the means of a mechanical fan. Fans balance the temperature by mixing the naturally rising warm air with the falling cooler air. Conduction occurs as heat moves through materials that are in direct contact with one another. Radiation reacts in two ways in a passive solar design: solar and infrared. Solar radiation can either be absorbed, reflected, or transmitted depending on the properties of the material that is in the sun’s path. Darker colors tend to absorb the sun’s radiant energy while lighter materials reflect it. Infrared radiation occurs when warmer surfaces radiate heat toward the cooler surfaces. If you have ever had cold feet after walking on tile you have experienced infrared radiation. Solar radiation transmits heat energy to surfaces in the home while infrared radiation gives off that heat to the home’s interior. 
+                </p>
+                <p>
+                    <b>Control:</b> Implementing properly sized roof overhangs to deflect summer sun and access winter sun creates less work for a mechanical heating and cooling system. Where larger overhangs are not practical, shading can accomplish the same task. Electronically controlled thermostat fans are effective in distributing or removing heat. The overall mass of the home plays an important role in maintaining a more constant temperature. A home with a large wall surface area to floor area will be more susceptible to heat loss and gain. Exterior finishes and their color dramatically affect whether they absorb or reflect the sun’s energy. The use of deciduous trees and shrubs are beneficial for screening excessive solar gain while maximizing it in cooler fall and winter months. Evergreens and other landscaping can be effective as a windscreen or to channel breezes into the house. Careful arrangement of living areas facing south aids in heating larger open areas rather than more compartmentalized smaller sleeping quarters. 
+                </p>
+            </div>
+        </div>
+
+        <!--FOOTER-->
+        <div id="footer">
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/contact">Contact</a>
+                <a href="/blog">Blog</a>
+                <a href="/about">About</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
+                <a href="tel:3606935161">360.693.5161</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow</h4>
+                <a href="https://www.facebook.com/pages/Design-Solutions/398235000223867">Facebook</a>
+                <a href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
+            </div>
+        </div>
+        <div id="footer-copyright">© Copyright Design Solutions - 2012-2021</div>
+        <!--END FOOTER-->
+    </body>
+</html>
