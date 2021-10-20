@@ -1,7 +1,12 @@
+@font-face {
+    font-family: Raleway;
+    src: url(/fonts/Raleway/Raleway-VariableFont_wght.ttf);
+  }
+
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Railway', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
 
