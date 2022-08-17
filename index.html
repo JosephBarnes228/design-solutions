@@ -13,7 +13,7 @@
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
     </head>
-    <body>
+    <body><div>
         <!--HEADER-->
         <div id='header' class="header">
             <ul id="navbar">
@@ -22,7 +22,7 @@
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/services/index.html">Services</a></li>
                     <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
-                    <li><a href="/blog/index.html">Blog</a></li>
+                    <!--<li><a href="/blog/index.html">Blog</a></li>-->
                     <li><a href="/about/index.html">About</a></li>
                     <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
                     <li class="mobile-invis"><img id="facebook" src="/img/facebook.png" onclick="window.open('https://www.facebook.com/pages/Design-Solutions/398235000223867', '_blank')"></li>
@@ -41,11 +41,11 @@
 
         <div id="content">
             <img src="img/s6.jpg" id="main-img">
-            <h1 id="big-text">Home Design<br>Reimagined.</h1>
-            <h3 class="services-header mobile-header">Design Solutions</h3>
-            <p id="subtitle">
-                Design Solutions is a Vancouver based residential design firm focusing on energy efficient, sustainable homes specifically designed for our client’s individual needs and building site. We take a synergistic approach when combining floor plans, exterior facades, site planning, material conservation, and resale. We serve Vancouver, Clark County, Portland and surrounding areas. We specialize in developing custom home plans, remodel plans, and addition plans.
-            </p>
+            <h1 id="big-text"><div class="typed-out">DESIGN SOLUTIONS</div></h1>
+        </div>
+        <div class="homepage-about">
+            <h3>About Us</h3>
+            <p>Design Solutions is a Vancouver based residential design firm focusing on energy efficient, sustainable homes specifically designed for our client’s individual needs and building site. We take a synergistic approach when combining floor plans, exterior facades, site planning, material conservation, and resale. We serve Vancouver, Clark County, Portland and surrounding areas. We specialize in developing custom home plans, remodel plans, and addition plans.</p>
         </div>
         <div id="content-info-container">
             <div id="content-info">
@@ -78,10 +78,10 @@
                     <div class="services-text">Remodels</div>
                 </div>
                 <!-- <div id="flex-break"></div> -->
-                <div class="services-img-container" onClick="window.open('/services/stock-plans', '_self')">
+                <!-- <div class="services-img-container" onClick="window.open('/services/stock-plans', '_self')">
                     <img class="services" src="img/blueprint.jpg">
                     <div class="services-text">Stock Plans</div>
-                </div>
+                </div> -->
                 <div class="services-img-container" onClick="window.open('/services/site-design', '_self')">
                     <img class="services" src="img/site-design.jpg">
                     <div class="services-text">Site Design</div>
@@ -99,13 +99,13 @@
         </div>
 
         <!--FOOTER-->
-        <div id="footer">
+        </div><div><div id="footer">
             <div class="footer-section">
                 <h4>Explore</h4>
                 <a href="/">Home</a>
                 <a href="/services">Services</a>
                 <a href="/contact">Contact</a>
-                <a href="/blog">Blog</a>
+                <!--<a href="/blog">Blog</a>-->
                 <a href="/about">About</a>
             </div>
             <div class="footer-section">
@@ -119,7 +119,7 @@
                 <a href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
             </div>
         </div>
-        <div id="footer-copyright">© Copyright Design Solutions - 2012-2021</div>
+        <div id="footer-copyright">© Copyright Design Solutions - 2012-2022</div></div>
         <!--END FOOTER-->
-    </body>
+    </div></body>
 </html>

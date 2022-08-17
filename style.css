@@ -1,16 +1,38 @@
 #main-img {
     width: 100%;
+    max-height: 90vh;
+    object-fit: cover;
     filter: brightness(0.6);
 }
 
 #big-text {
-    font-size: 5vw;
-    width: 100%;
+    font-size: 9vw;
+    margin-left: 3%;
     position: absolute;
-    top: 12vw;
+    top: 40vw;
     font-weight: lighter;
     color: white;
-    text-align: center;
+}
+.typed-out {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: 
+        typing 1.2s steps(16, end) forwards,
+        blinking 1.2s 1.5s 5;
+}
+
+@keyframes typing {
+    0% { width: 0; border-right: .15em solid white; }
+    99% { width: 100%; border-right: .15em solid white; }
+    100% { width: 100%; border-right: none; }
+}
+
+@keyframes blinking {
+    0% { border-color: transparent; }
+    49% { border-color: transparent; }
+    50% { border-right: .15em solid white; }
+    100% { border-right: .15em solid white; }
 }
 
 #subtitle {
@@ -46,7 +68,14 @@
     width: 50%;
 }
 
-#content-info h3 {
+.homepage-about {
+    font-weight: normal;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+#content-info h3,
+.homepage-about h3 {
     font-size: 2rem;
 }
 
@@ -122,6 +151,12 @@
     } */
 }
 
+@media only screen and (min-width: 1650px) {
+    #big-text{
+        top: 30vw;
+    }
+} 
+
 @media only screen and (max-width: 800px) {
     #header {
         z-index: 1;
@@ -134,7 +169,7 @@
         flex-direction: column-reverse;
     }
 
-    #content-info {
+    #content-info, .homepage-about {
         margin-left: 1rem;
         margin-right: 1rem;
         margin-bottom: 1rem;
@@ -154,13 +189,14 @@
     }
 
     #big-text {
-        display: none;
+        top: 42vw;
     }
 
     #main-img {
         position: relative;
         z-index: -2;
         margin-top: 5rem;
+        max-height: 90vh;
     }
 
     #content-info-container img {
