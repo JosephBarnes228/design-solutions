@@ -198,7 +198,14 @@ li a:hover {
         padding-bottom: .4rem;
     }
     .links {
-        display: none;
+        display: grid !important;
+        background-color: #273845;
+        width: 100%;
+        position: absolute !important;
+        top: -50rem;
+        box-shadow: 5px 10px 18px #888888;
+        transition: top 600ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+        z-index: -1;
     }
     div.bars {
         float: right;
@@ -217,12 +224,7 @@ li a:hover {
         text-align: left;
     }
     .links.responsive {
-        display: grid !important;
-        background-color: #273845;
-        width: 100%;
-        position: absolute !important;
         top: 5rem;
-        box-shadow: 5px 10px 18px #888888;
     }
     .links.responsive li {
         border-top: 1px solid rgb(196, 196, 196);
