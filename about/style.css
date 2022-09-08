@@ -17,6 +17,7 @@ p {
 
 .about-us-info img {
     border-radius: 50%;
+    width: 200px;
 }
 
 .about-us-text {
@@ -31,5 +32,9 @@ p {
     .about-us-info {
         flex-direction: column;
         margin: 8rem 2rem 4rem 2rem;
+    }
+
+    .mission-text {
+        padding: 0;
     }
 }

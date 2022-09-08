@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Design Solutions</title>
+        <title>Services | Design Solutions</title>
         <meta name="description" content="">
         <!-- <link rel="stylesheet" href="style.css"> -->
         <link rel="stylesheet" href="./style.css">
@@ -9,7 +9,7 @@
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="http://www.w3schools.com/lib/w3data.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="/styles/headerDisplay.js"></script>
+        <script src="/styles/headerDisplay.js" defer></script>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
     </head>
@@ -22,14 +22,14 @@
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/services/index.html">Services</a></li>
                     <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
-                    <!--<li><a href="/blog/index.html">Blog</a></li>-->
+                    <li><a href="/blog/index.html">Blog</a></li>
                     <li><a href="/about/index.html">About</a></li>
                     <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
                     <li class="mobile-invis"><img id="facebook" src="/img/facebook.png" onclick="window.open('https://www.facebook.com/pages/Design-Solutions/398235000223867', '_blank')"></li>
                     <li class="mobile-invis"><button id="header-contact" onClick="window.open('/contact', '_self')">Contact Us</button></li>
                 </div>
                 <li class="hamburger">
-                    <div class="bars" onclick="displayLinks()">
+                    <div class="bars">
                         <div></div>
                         <div></div>
                         <div></div>
@@ -41,22 +41,22 @@
         <h3 class="services-header">Our Services</h3>
         <div>
             <div id="content-info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>At Design Solutions, we take a synergistic approach when combining floor plans, exterior facades, site planning, material conservation, and resale. Click the below buttons to learn more about the various factors we take into consideration when designing.</p>
             </div>
             <div class="services-container">
                 <div class="services-img-container" onClick="window.open('/services/custom-plans', '_self')">
                     <img class="services" src="/img/custom-plan.jpg">
-                    <div class="services-text">Custom Plans</div>
+                    <div class="services-text custom-plans-services-text">Custom Plans</div>
                 </div>
                 <div class="services-img-container" onClick="window.open('/services/remodels', '_self')">
                     <img class="services" src="/img/remodel.jpg">
                     <div class="services-text">Remodels</div>
                 </div>
                 <!-- <div id="flex-break"></div> -->
-                <!-- <div class="services-img-container" onClick="window.open('/services/stock-plans', '_self')">
+                <div class="services-img-container" onClick="window.open('/services/stock-plans', '_self')">
                     <img class="services" src="/img/blueprint.jpg">
                     <div class="services-text">Stock Plans</div>
-                </div> -->
+                </div>
                 <div class="services-img-container" onClick="window.open('/services/site-design', '_self')">
                     <img class="services" src="/img/site-design.jpg">
                     <div class="services-text">Site Design</div>
@@ -80,7 +80,7 @@
                 <a href="/">Home</a>
                 <a href="/services">Services</a>
                 <a href="/contact">Contact</a>
-                <!--<a href="/blog">Blog</a>-->
+                <a href="/blog">Blog</a>
                 <a href="/about">About</a>
             </div>
             <div class="footer-section">

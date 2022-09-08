@@ -9,6 +9,14 @@
     box-shadow: -0.5rem 0.5rem 1rem grey;
 }
 
+.aging-in-place {
+    max-width: 225px;
+}
+
+#content-info-container .energy-efficient-img-container img {
+    box-shadow: none;
+}
+
 #content-info {
     font-weight: normal;
     margin-left: 15rem;
@@ -26,6 +34,16 @@
     margin-bottom: .7rem;
 }
 
+#content-info ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#content-info li {
+    float: left;
+    align-self: flex-start;
+}
+
 @media only screen and (max-width: 1200px) {
     #content-info-container {
         flex-direction: column;
@@ -35,6 +53,7 @@
     #content-info {
         width: auto;
         margin-right: 5rem;
+        margin-left: 10rem;
     }
 }
 
