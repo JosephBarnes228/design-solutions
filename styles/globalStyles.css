@@ -98,16 +98,15 @@ li a:hover {
     padding: .7rem;
 }
 
-#facebook {
-    width: 1.1rem;
-    filter: invert(1);
-    padding: .7rem;
+#google-icon {
+    width: 1.4rem;
+    padding: .55rem;
     margin-left: .3rem;
     margin-right: .8rem;
 }
 
 #linkedin:hover,
-#facebook:hover,
+#google-icon:hover,
 #logo:hover {
     cursor: pointer;
 }
