@@ -10,6 +10,7 @@
         <script src="http://www.w3schools.com/lib/w3data.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="/styles/headerDisplay.js" defer></script>
+        <script src="/styles/imageCarousel.js"></script>
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
     </head>
@@ -40,7 +41,35 @@
         <!--END HEADER-->
 
         <div id="content">
-            <img src="img/s6.jpg" id="main-img">
+            <div class="custom-slider">
+                <div class="slider-overlay-color"></div>
+                <div class="slider-backgrounds">
+                  <div class="slider-inner">
+                    <div class="slider-container">
+                      <div class="slider-image-block-1" style="width: 100vw; height: 100%;">
+                        <img
+                          src="/img/slide1.jpg"
+                          sizes="100vw"
+                          class="slider-image is-1st"
+                          style="transform: translate3d(0vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+                          transform-style: preserve-3d;">
+                      </div>
+                      <div class="slider-image-block-2" style="width: 100vw; height: 100%;">
+                        <img
+                          src="img/slide2.jpg"
+                          class="slider-image is-2nd"
+                          style="transform: translate3d(20vw, 0px, 0px) scale3d(1.3, 1.3, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+                          transform-style: preserve-3d;">
+                      </div>
+                      <img src="img/slide3.jpg"
+                        sizes="100vw"
+                        class="slider-image-last"
+                        style="transform: translate3d(20vw, 0px, 0px) scale3d(1.3, 1.3, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+                        transform-style: preserve-3d;">
+                    </div>
+                  </div>
+                </div>
+            </div>
             <h1 id="big-text"><div class="typed-out">DESIGN SOLUTIONS</div></h1>
         </div>
         <div class="homepage-about">
