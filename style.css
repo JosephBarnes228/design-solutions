@@ -335,10 +335,10 @@
         font-size: 1.1rem;
     }
 
-    .services-img-container {
+    /* .services-img-container {
         margin-right: 1rem;
         margin-bottom: 1rem;
-    }
+    } */
 
     .building-envelopes-services-text, .custom-plans-services-text {
         width: 70%;
