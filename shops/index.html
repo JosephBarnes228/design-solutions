@@ -68,24 +68,28 @@
                     <div class="control-group">
                         <label>Wall Siding Finish:</label>
                         <div class="swatch-group">
-                            <div class="swatch siding-swatch active" style="background:#2D3748" data-color="2D3748" data-name="Slate Charcoal" title="Slate Charcoal"></div>
-                            <div class="swatch siding-swatch" style="background:#1A202C" data-color="1A202C" data-name="Matte Black" title="Matte Black"></div>
-                            <div class="swatch siding-swatch" style="background:#2B6CB0" data-color="2B6CB0" data-name="Pacific Navy" title="Pacific Navy"></div>
-                            <div class="swatch siding-swatch" style="background:#9B2C2C" data-color="9B2C2C" data-name="Rustic Barn Red" title="Rustic Barn Red"></div>
-                            <div class="swatch siding-swatch" style="background:#22543D" data-color="22543D" data-name="Forest Green" title="Forest Green"></div>
-                            <div class="swatch siding-swatch" style="background:#D69E2E" data-color="D69E2E" data-name="Cedar Gold" title="Cedar Gold"></div>
-                            <div class="swatch siding-swatch" style="background:#E2E8F0" data-color="E2E8F0" data-name="Pure White" title="Pure White"></div>
+                            <div class="swatch siding-swatch active" style="background:#334155" data-color="334155" data-name="Slate Charcoal" title="Slate Charcoal"></div>
+                            <div class="swatch siding-swatch" style="background:#F8FAFC; border:1px solid #CBD5E1;" data-color="F8FAFC" data-name="Polar White" title="Polar White"></div>
+                            <div class="swatch siding-swatch" style="background:#D4C5B9" data-color="D4C5B9" data-name="Sandstone Tan" title="Sandstone Tan"></div>
+                            <div class="swatch siding-swatch" style="background:#475569" data-color="475569" data-name="Burnished Slate" title="Burnished Slate"></div>
+                            <div class="swatch siding-swatch" style="background:#991B1B" data-color="991B1B" data-name="Rustic Red" title="Rustic Red"></div>
+                            <div class="swatch siding-swatch" style="background:#14532D" data-color="14532D" data-name="Evergreen" title="Evergreen"></div>
+                            <div class="swatch siding-swatch" style="background:#1E3A8A" data-color="1E3A8A" data-name="Pacific Navy" title="Pacific Navy"></div>
+                            <div class="swatch siding-swatch" style="background:#1E293B" data-color="1E293B" data-name="Coal Black" title="Coal Black"></div>
+                            <div class="swatch siding-swatch" style="background:#9A3412" data-color="9A3412" data-name="Cedar Bronze" title="Cedar Bronze"></div>
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label>Roof Metal Finish:</label>
                         <div class="swatch-group">
-                            <div class="swatch roof-swatch active" style="background:#1A202C" data-color="1A202C" data-name="Matte Black" title="Matte Black"></div>
-                            <div class="swatch roof-swatch" style="background:#4A5568" data-color="4A5568" data-name="Charcoal Grey" title="Charcoal Grey"></div>
-                            <div class="swatch roof-swatch" style="background:#CBD5E0" data-color="CBD5E0" data-name="Galvalume Silver" title="Galvalume Silver"></div>
-                            <div class="swatch roof-swatch" style="background:#742A2A" data-color="742A2A" data-name="Crimson Metal" title="Crimson Metal"></div>
-                            <div class="swatch roof-swatch" style="background:#1C4532" data-color="1C4532" data-name="Hunter Green" title="Hunter Green"></div>
+                            <div class="swatch roof-swatch active" style="background:#0F172A" data-color="0F172A" data-name="Matte Black" title="Matte Black"></div>
+                            <div class="swatch roof-swatch" style="background:#CBD5E1" data-color="CBD5E1" data-name="Galvalume Silver" title="Galvalume Silver"></div>
+                            <div class="swatch roof-swatch" style="background:#334155" data-color="334155" data-name="Charcoal Grey" title="Charcoal Grey"></div>
+                            <div class="swatch roof-swatch" style="background:#475569" data-color="475569" data-name="Burnished Slate" title="Burnished Slate"></div>
+                            <div class="swatch roof-swatch" style="background:#7F1D1D" data-color="7F1D1D" data-name="Colonial Red" title="Colonial Red"></div>
+                            <div class="swatch roof-swatch" style="background:#14532D" data-color="14532D" data-name="Forest Green" title="Forest Green"></div>
+                            <div class="swatch roof-swatch" style="background:#1E3A8A" data-color="1E3A8A" data-name="Deep Blue" title="Deep Blue"></div>
                         </div>
                     </div>
                 </div>
@@ -94,33 +98,40 @@
                 <div class="control-section">
                     <div class="control-section-title">4. Doors & Windows</div>
                     
-                    <div class="control-group">
-                        <label>Overhead Garage Doors:</label>
-                        <select id="input-garage" class="form-input">
-                            <option value="0">0 Garage Bays</option>
-                            <option value="1">1 Garage Bay</option>
-                            <option value="2" selected>2 Garage Bays</option>
-                            <option value="3">3 Garage Bays</option>
-                        </select>
+                    <!-- Overhead Garage Doors -->
+                    <div class="control-group item-section">
+                        <div class="item-control-header">
+                            <label>Overhead Garage Bays: <span id="val-garage-count" class="val-badge">2</span></label>
+                            <div class="counter-btn-group">
+                                <button type="button" id="btn-sub-garage" class="counter-btn" title="Remove Garage Bay">&minus;</button>
+                                <button type="button" id="btn-add-garage" class="counter-btn" title="Add Garage Bay">&plus;</button>
+                            </div>
+                        </div>
+                        <div id="garage-items-list" class="items-list-container"></div>
                     </div>
 
-                    <div class="control-group">
-                        <label>Entry Man Doors:</label>
-                        <select id="input-mandoor" class="form-input">
-                            <option value="0">0 Man Doors</option>
-                            <option value="1" selected>1 Entry Door</option>
-                            <option value="2">2 Entry Doors</option>
-                        </select>
+                    <!-- Entry Man Doors -->
+                    <div class="control-group item-section">
+                        <div class="item-control-header">
+                            <label>Entry Man Doors: <span id="val-mandoor-count" class="val-badge">1</span></label>
+                            <div class="counter-btn-group">
+                                <button type="button" id="btn-sub-mandoor" class="counter-btn" title="Remove Entry Door">&minus;</button>
+                                <button type="button" id="btn-add-mandoor" class="counter-btn" title="Add Entry Door">&plus;</button>
+                            </div>
+                        </div>
+                        <div id="mandoor-items-list" class="items-list-container"></div>
                     </div>
 
-                    <div class="control-group">
-                        <label>Side Windows:</label>
-                        <select id="input-windows" class="form-input">
-                            <option value="0">0 Windows</option>
-                            <option value="2" selected>2 Windows</option>
-                            <option value="4">4 Windows</option>
-                            <option value="6">6 Windows</option>
-                        </select>
+                    <!-- Windows -->
+                    <div class="control-group item-section">
+                        <div class="item-control-header">
+                            <label>Windows: <span id="val-window-count" class="val-badge">2</span></label>
+                            <div class="counter-btn-group">
+                                <button type="button" id="btn-sub-window" class="counter-btn" title="Remove Window">&minus;</button>
+                                <button type="button" id="btn-add-window" class="counter-btn" title="Add Window">&plus;</button>
+                            </div>
+                        </div>
+                        <div id="window-items-list" class="items-list-container"></div>
                     </div>
                 </div>
 
@@ -148,19 +159,33 @@
                 <button id="btn-open-inquiry" class="btn-primary cta-btn-full">Start CAD Blueprint Inquiry</button>
             </aside>
 
-            <!-- 3D VIEWPORT CONTAINER (RIGHT) -->
-            <section id="viewport-container" class="viewport-container">
-                <canvas id="shop-canvas"></canvas>
-                
-                <div class="viewport-overlay">
-                    <button id="btn-reset-cam" class="viewport-btn">🔄 Reset View</button>
-                    <button id="btn-top-view" class="viewport-btn">📐 Top View</button>
+            <!-- 3D VIEWPORT COLUMN (RIGHT) -->
+            <div class="viewport-column">
+                <!-- Conceptual View Disclaimer Banner -->
+                <div class="editor-disclaimer-banner">
+                    <div class="disclaimer-icon">💡</div>
+                    <div class="disclaimer-content">
+                        <strong>Conceptual 3D Preview Notice:</strong> This 3D editor displays a simplified architectural model to explore building proportions and colors. Every building is fully customizable — including interior lofts, custom window grid styles, overhang depths, insulation systems, and full structural engineering — when speaking directly with our design team. You can detail all specific custom requests using our <a href="#inquiry-modal" id="link-disclaimer-modal">CAD Blueprint Request Form</a>.
+                    </div>
                 </div>
 
-                <div class="viewport-hint">
-                    🖱️ Drag to rotate 360° &bull; Scroll to zoom &bull; Right-click to pan
-                </div>
-            </section>
+                <section id="viewport-container" class="viewport-container">
+                    <canvas id="shop-canvas"></canvas>
+                    
+                    <div id="wall-warning" class="wall-warning-banner" style="display:none;">
+                        ⚠️ Wall Capacity Notice: Openings auto-scaled to fit wall
+                    </div>
+
+                    <div class="viewport-overlay">
+                        <button id="btn-reset-cam" class="viewport-btn">🔄 Reset View</button>
+                        <button id="btn-top-view" class="viewport-btn">📐 Top View</button>
+                    </div>
+
+                    <div class="viewport-hint">
+                        🖱️ Drag to rotate 360° &bull; Scroll to zoom &bull; Right-click to pan
+                    </div>
+                </section>
+            </div>
         </div>
     </main>
 

@@ -8,15 +8,23 @@ const shopState = {
     height: 14,    // feet
     pitch: 4,      // X / 12
     style: 'gable', // gable, monoslope, gambrel
-    sidingColor: 0x2D3748,
+    sidingColor: 0x334155,
     sidingName: 'Slate Charcoal',
-    roofColor: 0x1A202C,
+    roofColor: 0x0F172A,
     roofName: 'Matte Black',
     trimColor: 0xFFFFFF,
-    garageDoors: 2,
-    garageDoorSize: 10, // 10ft x 10ft
-    manDoors: 1,
-    windows: 2
+    garageDoorSize: 10, // Default single bay width
+    garageDoorsList: [
+        { id: 1, side: 'front', size: 10 },
+        { id: 2, side: 'front', size: 10 }
+    ],
+    manDoorsList: [
+        { id: 1, side: 'right' }
+    ],
+    windowsList: [
+        { id: 1, side: 'left' },
+        { id: 2, side: 'left' }
+    ]
 };
 
 let scene, camera, renderer, controls;
@@ -81,7 +89,8 @@ function init3D() {
     shopGroup = new THREE.Group();
     scene.add(shopGroup);
 
-    // Build Initial Shop
+    // Render Initial UI List & Build Shop
+    renderItemLists();
     buildShop();
 
     // Render Loop
@@ -191,7 +200,7 @@ function buildShop() {
         shopGroup.add(cTrim);
     });
 
-    // 3. Roof Construction
+    // 3. Roof Construction & Solid End Walls
     if (shopState.style === 'gable') {
         // Gable End Triangles (Front & Back)
         const gableShape = new THREE.Shape();
@@ -218,7 +227,7 @@ function buildShop() {
         // Roof Slopes
         const eaveOverhang = 1.2;
         const slopeLen = Math.sqrt(Math.pow(W / 2 + eaveOverhang, 2) + Math.pow(roofPeakHeight, 2));
-        const roofAngle = Math.atan2(roofPeakHeight, W / 2);
+        const roofAngle = Math.atan2(roofPeakHeight, W / 2 + eaveOverhang);
 
         // Left Roof Panel
         const roofLeftGeo = new THREE.BoxGeometry(slopeLen, 0.3, L + eaveOverhang * 2);
@@ -242,104 +251,455 @@ function buildShop() {
         shopGroup.add(cap);
 
     } else if (shopState.style === 'monoslope') {
-        // Monoslope / Lean-To Roof
+        // Monoslope / Lean-To Roof & Solid 4-Side Walls
         const eaveOverhang = 1.2;
-        const monoHeight = roofPeakHeight * 1.5;
-        
-        // Single Slope Roof Panel
-        const monoSlopeLen = Math.sqrt(Math.pow(W + eaveOverhang * 2, 2) + Math.pow(monoHeight, 2));
-        const monoAngle = Math.atan2(monoHeight, W);
+        const monoHeight = Math.max(3.5, W * pitchRatio);
 
-        const roofMonoGeo = new THREE.BoxGeometry(monoSlopeLen, 0.3, L + eaveOverhang * 2);
+        // High Wall Longitudinal Extension Fill (along x = -W/2)
+        const highWallGeo = new THREE.BoxGeometry(0.2, monoHeight, L);
+        const highWall = new THREE.Mesh(highWallGeo, sidingMat);
+        highWall.position.set(-W / 2 + 0.1, H + 0.5 + monoHeight / 2, 0);
+        highWall.castShadow = true;
+        shopGroup.add(highWall);
+
+        // Fill triangular side end walls on Front (z = L/2) and Back (z = -L/2)
+        const monoShape = new THREE.Shape();
+        monoShape.moveTo(-W / 2, 0);
+        monoShape.lineTo(-W / 2, monoHeight);
+        monoShape.lineTo(W / 2, 0);
+        monoShape.closePath();
+
+        const extrudeSettings = { depth: 0.2, bevelEnabled: false };
+        const monoGableGeo = new THREE.ExtrudeGeometry(monoShape, extrudeSettings);
+
+        const frontMonoGable = new THREE.Mesh(monoGableGeo, sidingMat);
+        frontMonoGable.position.set(0, H + 0.5, L / 2 - 0.1);
+        frontMonoGable.castShadow = true;
+        shopGroup.add(frontMonoGable);
+
+        const backMonoGable = new THREE.Mesh(monoGableGeo, sidingMat);
+        backMonoGable.position.set(0, H + 0.5, -L / 2 - 0.1);
+        backMonoGable.castShadow = true;
+        shopGroup.add(backMonoGable);
+
+        // Single Sloped Roof Panel (slopes down from high wall at -W/2 to low wall at +W/2)
+        const spanW = W + eaveOverhang * 2;
+        const monoSlopeLen = Math.sqrt(Math.pow(spanW, 2) + Math.pow(monoHeight, 2));
+        const monoAngle = Math.atan2(monoHeight, spanW);
+
+        const roofMonoGeo = new THREE.BoxGeometry(monoSlopeLen, 0.35, L + eaveOverhang * 2);
         const roofMono = new THREE.Mesh(roofMonoGeo, roofMat);
         roofMono.position.set(0, H + 0.5 + monoHeight / 2, 0);
         roofMono.rotation.z = -monoAngle;
         roofMono.castShadow = true;
         shopGroup.add(roofMono);
 
+        // High Eave Trim Cap
+        const eaveTrimGeo = new THREE.BoxGeometry(0.5, 0.5, L + eaveOverhang * 2 + 0.2);
+        const highEaveTrim = new THREE.Mesh(eaveTrimGeo, trimMat);
+        highEaveTrim.position.set(-W/2 - eaveOverhang / 2, H + 0.5 + monoHeight, 0);
+        shopGroup.add(highEaveTrim);
+
     } else if (shopState.style === 'gambrel') {
-        // Barn Gambrel Style Roof
+        // Barn Gambrel Style Roof & 100% Solid Barn End Walls
         const eaveOverhang = 1.2;
-        const gGeoLeft = new THREE.BoxGeometry(W/2 + eaveOverhang, 0.3, L + eaveOverhang*2);
-        const gLeft = new THREE.Mesh(gGeoLeft, roofMat);
-        gLeft.position.set(-W/4, H + 0.5 + roofPeakHeight*0.7, 0);
-        gLeft.rotation.z = Math.PI / 6;
-        gLeft.castShadow = true;
-        shopGroup.add(gLeft);
+        const gPeakH = (W / 2) * pitchRatio * 1.35;
+        const breakH = gPeakH * 0.65;
+        const breakX = W / 4;
 
-        const gRight = new THREE.Mesh(gGeoLeft, roofMat);
-        gRight.position.set(W/4, H + 0.5 + roofPeakHeight*0.7, 0);
-        gRight.rotation.z = -Math.PI / 6;
-        gRight.castShadow = true;
-        shopGroup.add(gRight);
+        // 1. Gambrel 5-Point Barn End Walls (Front & Back)
+        const gambrelShape = new THREE.Shape();
+        gambrelShape.moveTo(-W / 2, 0);
+        gambrelShape.lineTo(-breakX, breakH);
+        gambrelShape.lineTo(0, gPeakH);
+        gambrelShape.lineTo(breakX, breakH);
+        gambrelShape.lineTo(W / 2, 0);
+        gambrelShape.closePath();
+
+        const extrudeSettings = { depth: 0.2, bevelEnabled: false };
+        const gambrelGableGeo = new THREE.ExtrudeGeometry(gambrelShape, extrudeSettings);
+
+        const frontGambrel = new THREE.Mesh(gambrelGableGeo, sidingMat);
+        frontGambrel.position.set(0, H + 0.5, L / 2 - 0.1);
+        frontGambrel.castShadow = true;
+        shopGroup.add(frontGambrel);
+
+        const backGambrel = new THREE.Mesh(gambrelGableGeo, sidingMat);
+        backGambrel.position.set(0, H + 0.5, -L / 2 - 0.1);
+        backGambrel.castShadow = true;
+        shopGroup.add(backGambrel);
+
+        // 2. Four Roof Panels (Lower Steep + Upper Shallow Slopes)
+        const lowerSpanX = W / 4 + eaveOverhang;
+        const lowerLen = Math.sqrt(Math.pow(lowerSpanX, 2) + Math.pow(breakH, 2));
+        const lowerAngle = Math.atan2(breakH, lowerSpanX);
+
+        const lowerRoofGeo = new THREE.BoxGeometry(lowerLen, 0.35, L + eaveOverhang * 2);
+
+        // Lower Left Roof Panel
+        const lowerLeft = new THREE.Mesh(lowerRoofGeo, roofMat);
+        lowerLeft.position.set(-(W / 2 + breakX) / 2 - eaveOverhang / 2, H + 0.5 + breakH / 2, 0);
+        lowerLeft.rotation.z = lowerAngle;
+        lowerLeft.castShadow = true;
+        shopGroup.add(lowerLeft);
+
+        // Lower Right Roof Panel
+        const lowerRight = new THREE.Mesh(lowerRoofGeo, roofMat);
+        lowerRight.position.set((W / 2 + breakX) / 2 + eaveOverhang / 2, H + 0.5 + breakH / 2, 0);
+        lowerRight.rotation.z = -lowerAngle;
+        lowerRight.castShadow = true;
+        shopGroup.add(lowerRight);
+
+        // Upper Shallow Slopes
+        const upperSpanX = W / 4;
+        const upperSpanY = gPeakH - breakH;
+        const upperLen = Math.sqrt(Math.pow(upperSpanX, 2) + Math.pow(upperSpanY, 2));
+        const upperAngle = Math.atan2(upperSpanY, upperSpanX);
+
+        const upperRoofGeo = new THREE.BoxGeometry(upperLen + 0.2, 0.35, L + eaveOverhang * 2);
+
+        // Upper Left Roof Panel
+        const upperLeft = new THREE.Mesh(upperRoofGeo, roofMat);
+        upperLeft.position.set(-breakX / 2, H + 0.5 + breakH + upperSpanY / 2, 0);
+        upperLeft.rotation.z = upperAngle;
+        upperLeft.castShadow = true;
+        shopGroup.add(upperLeft);
+
+        // Upper Right Roof Panel
+        const upperRight = new THREE.Mesh(upperRoofGeo, roofMat);
+        upperRight.position.set(breakX / 2, H + 0.5 + breakH + upperSpanY / 2, 0);
+        upperRight.rotation.z = -upperAngle;
+        upperRight.castShadow = true;
+        shopGroup.add(upperRight);
+
+        // Ridge Cap
+        const capGeo = new THREE.BoxGeometry(0.8, 0.4, L + eaveOverhang * 2 + 0.2);
+        const cap = new THREE.Mesh(capGeo, trimMat);
+        cap.position.set(0, H + 0.5 + gPeakH + 0.2, 0);
+        shopGroup.add(cap);
     }
 
-    // 4. Garage Doors (Front Wall L/2)
-    const numGarage = shopState.garageDoors;
-    const gWidth = shopState.garageDoorSize;
-    const gHeight = Math.min(shopState.garageDoorSize, H - 2);
+    // 4. Doors & Windows Placement (Supports Single 10' & Double 16' Garage Bays; Unscaled Omit Overflow)
+    let anyCollisionWarning = false;
+    const sides = ['front', 'back', 'left', 'right'];
 
-    if (numGarage > 0) {
-        const spacing = W / (numGarage + 1);
-        for (let i = 1; i <= numGarage; i++) {
-            const gx = -W / 2 + spacing * i;
-            
-            // Door Frame
-            const frameGeo = new THREE.BoxGeometry(gWidth + 0.6, gHeight + 0.3, 0.3);
-            const frame = new THREE.Mesh(frameGeo, trimMat);
-            frame.position.set(gx, gHeight / 2 + 0.5, L / 2 + 0.1);
-            shopGroup.add(frame);
+    sides.forEach(side => {
+        const wallSpan = (side === 'front' || side === 'back') ? W : L;
 
-            // Door Panel
-            const doorGeo = new THREE.BoxGeometry(gWidth, gHeight, 0.2);
-            const doorMat = new THREE.MeshStandardMaterial({ color: 0xF8FAFC, roughness: 0.4 });
-            const door = new THREE.Mesh(doorGeo, doorMat);
-            door.position.set(gx, gHeight / 2 + 0.5, L / 2 + 0.15);
-            shopGroup.add(door);
+        // Gather Garage Doors assigned to this side
+        const gItems = shopState.garageDoorsList.filter(item => item.side === side);
+        
+        // Gather Man Doors assigned to this side
+        const mItems = shopState.manDoorsList.filter(item => item.side === side);
+        const mW = 3.6;
+        const mH = 7.0;
 
-            // Panel Slats (details)
-            for (let s = 1; s < 4; s++) {
-                const lineGeo = new THREE.BoxGeometry(gWidth - 0.2, 0.08, 0.25);
-                const line = new THREE.Mesh(lineGeo, trimMat);
-                line.position.set(gx, (gHeight / 4) * s + 0.5, L / 2 + 0.16);
-                shopGroup.add(line);
+        // Gather Windows assigned to this side
+        const wItems = shopState.windowsList.filter(item => item.side === side);
+        const winW = 4.2;
+        const winH = 4.0;
+
+        // Side Partitioning Order: Left Windows -> Garage Bays -> Man Doors -> Right Windows
+        let wLeft = [], wRight = [];
+        if (wItems.length > 1 && (gItems.length > 0 || mItems.length > 0)) {
+            const half = Math.floor(wItems.length / 2);
+            wLeft = wItems.slice(0, half);
+            wRight = wItems.slice(half);
+        } else {
+            wRight = wItems;
+        }
+
+        const candidateItems = [];
+        wLeft.forEach(item => candidateItems.push({ type: 'window', baseW: winW, h: winH }));
+        
+        gItems.forEach(item => {
+            const gW = item.size || 10;
+            const gH = Math.min(10, H - 2);
+            candidateItems.push({ type: 'garage', isDouble: gW === 16, baseW: gW, h: gH });
+        });
+
+        mItems.forEach(item => candidateItems.push({ type: 'mandoor', baseW: mW, h: mH }));
+        wRight.forEach(item => candidateItems.push({ type: 'window', baseW: winW, h: winH }));
+
+        if (candidateItems.length === 0) return;
+
+        // Capacity check: Keep items at 100% full unscaled size; omit elements that overflow wallSpan
+        const gap = 1.8;
+        const endPad = 1.8;
+        let currentReqSpan = 0;
+        const acceptedItems = [];
+
+        candidateItems.forEach(item => {
+            const testSpan = currentReqSpan + (acceptedItems.length > 0 ? gap : 0) + item.baseW;
+            if (testSpan + 2 * endPad <= wallSpan) {
+                acceptedItems.push(item);
+                currentReqSpan = testSpan;
+            } else {
+                anyCollisionWarning = true; // Dropped overflow item
             }
-        }
-    }
+        });
 
-    // 5. Entry Man Doors (Side Wall)
-    if (shopState.manDoors > 0) {
-        for (let i = 0; i < shopState.manDoors; i++) {
-            const mZ = -L / 4 + i * (L / 2);
-            const mGeo = new THREE.BoxGeometry(0.2, 7, 3.5);
-            const mDoor = new THREE.Mesh(mGeo, trimMat);
-            mDoor.position.set(W / 2 + 0.1, 4, mZ);
-            shopGroup.add(mDoor);
-        }
-    }
+        if (acceptedItems.length === 0) return;
 
-    // 6. Glass Windows (Side Wall -W/2)
-    if (shopState.windows > 0) {
-        const winSpacing = L / (shopState.windows + 1);
-        for (let i = 1; i <= shopState.windows; i++) {
-            const wZ = -L / 2 + winSpacing * i;
+        // Spacing accepted items evenly along wall
+        const totalItemW = acceptedItems.reduce((acc, item) => acc + item.baseW, 0);
+        const remainingSpace = wallSpan - totalItemW;
+        const actualGap = remainingSpace / (acceptedItems.length + 1);
 
-            // Frame
-            const wFrameGeo = new THREE.BoxGeometry(0.3, 4, 4);
-            const wFrame = new THREE.Mesh(wFrameGeo, trimMat);
-            wFrame.position.set(-W / 2 - 0.1, H / 2 + 0.5, wZ);
-            shopGroup.add(wFrame);
+        let currX = -wallSpan / 2 + actualGap;
 
-            // Glass Pane
-            const glassGeo = new THREE.BoxGeometry(0.1, 3.6, 3.6);
-            const glass = new THREE.Mesh(glassGeo, glassMat);
-            glass.position.set(-W / 2 - 0.12, H / 2 + 0.5, wZ);
-            shopGroup.add(glass);
+        acceptedItems.forEach(item => {
+            const itemW = item.baseW; // Full standard size
+            const posInWall = currX + itemW / 2;
+            currX += itemW + actualGap;
+
+            let px = 0, py = 0, pz = 0, rotY = 0;
+            const offset = 0.3;
+
+            if (side === 'front') {
+                px = posInWall; pz = L / 2 + offset; rotY = 0; py = item.h / 2 + 0.5;
+            } else if (side === 'back') {
+                px = posInWall; pz = -L / 2 - offset; rotY = Math.PI; py = item.h / 2 + 0.5;
+            } else if (side === 'left') {
+                px = -W / 2 - offset; pz = posInWall; rotY = -Math.PI / 2; py = item.h / 2 + 0.5;
+            } else if (side === 'right') {
+                px = W / 2 + offset; pz = posInWall; rotY = Math.PI / 2; py = item.h / 2 + 0.5;
+            }
+
+            if (item.type === 'window') {
+                py = H * 0.55 + 0.5;
+            }
+
+            const group = new THREE.Group();
+            group.position.set(px, py, pz);
+            group.rotation.y = rotY;
+
+            if (item.type === 'garage') {
+                // Outer Frame
+                const frameGeo = new THREE.BoxGeometry(itemW + 0.6, item.h + 0.3, 0.4);
+                const frame = new THREE.Mesh(frameGeo, trimMat);
+                group.add(frame);
+
+                // Inner Door Panel
+                const doorGeo = new THREE.BoxGeometry(itemW, item.h, 0.3);
+                const doorMat = new THREE.MeshStandardMaterial({ color: 0xF8FAFC, roughness: 0.3, metalness: 0.1 });
+                const door = new THREE.Mesh(doorGeo, doorMat);
+                door.position.z = 0.08;
+                group.add(door);
+
+                // Horizontal Slat Reliefs
+                for (let s = 1; s < 4; s++) {
+                    const lineGeo = new THREE.BoxGeometry(itemW - 0.2, 0.1, 0.35);
+                    const line = new THREE.Mesh(lineGeo, trimMat);
+                    line.position.set(0, (item.h / 4) * s - item.h / 2, 0.1);
+                    group.add(line);
+                }
+
+                // Double Door Center Seam Divider (for 16' Double Garage Bays)
+                if (item.isDouble) {
+                    const centerLineGeo = new THREE.BoxGeometry(0.12, item.h - 0.2, 0.35);
+                    const centerLine = new THREE.Mesh(centerLineGeo, trimMat);
+                    centerLine.position.set(0, 0, 0.1);
+                    group.add(centerLine);
+                }
+            } else if (item.type === 'mandoor') {
+                // Frame & Panel
+                const frameGeo = new THREE.BoxGeometry(itemW, item.h + 0.3, 0.4);
+                const frame = new THREE.Mesh(frameGeo, trimMat);
+                group.add(frame);
+
+                const panelGeo = new THREE.BoxGeometry(itemW - 0.5, item.h - 0.2, 0.3);
+                const panelMat = new THREE.MeshStandardMaterial({ color: 0xE2E8F0, roughness: 0.4 });
+                const panel = new THREE.Mesh(panelGeo, panelMat);
+                panel.position.z = 0.08;
+                group.add(panel);
+
+                // Doorknob
+                const handleGeo = new THREE.SphereGeometry(0.18, 12, 12);
+                const handleMat = new THREE.MeshStandardMaterial({ color: 0x0F172A, metalness: 0.95 });
+                const handle = new THREE.Mesh(handleGeo, handleMat);
+                handle.position.set(1.1, 0, 0.25);
+                group.add(handle);
+            } else if (item.type === 'window') {
+                // Frame
+                const wFrameGeo = new THREE.BoxGeometry(itemW, item.h + 0.3, 0.4);
+                const wFrame = new THREE.Mesh(wFrameGeo, trimMat);
+                group.add(wFrame);
+
+                // Glass Pane
+                const glassGeo = new THREE.BoxGeometry(itemW - 0.6, item.h - 0.4, 0.2);
+                const glass = new THREE.Mesh(glassGeo, glassMat);
+                glass.position.z = 0.08;
+                group.add(glass);
+
+                // Window Mullions
+                const mullionH = new THREE.BoxGeometry(itemW - 0.6, 0.08, 0.22);
+                const mullH = new THREE.Mesh(mullionH, trimMat);
+                mullH.position.z = 0.1;
+                group.add(mullH);
+
+                const mullionV = new THREE.BoxGeometry(0.08, item.h - 0.4, 0.22);
+                const mullV = new THREE.Mesh(mullionV, trimMat);
+                mullV.position.z = 0.1;
+                group.add(mullV);
+            }
+
+            shopGroup.add(group);
+        });
+    });
+
+    // Toggle Warning Banner
+    const warningEl = document.getElementById('wall-warning');
+    if (warningEl) {
+        warningEl.style.display = anyCollisionWarning ? 'flex' : 'none';
+        if (anyCollisionWarning) {
+            warningEl.innerHTML = '⚠️ Wall Capacity Exceeded: Opening(s) removed to fit wall without overlap.';
         }
     }
 
     // Update Stats Display
     updateStats();
+}
+
+function renderItemLists() {
+    // 1. Garage Bays (with Side & Size Selectors)
+    const gContainer = document.getElementById('garage-items-list');
+    const gBadge = document.getElementById('val-garage-count');
+    if (gBadge) gBadge.textContent = shopState.garageDoorsList.length;
+    if (gContainer) {
+        gContainer.innerHTML = '';
+        shopState.garageDoorsList.forEach((item, idx) => {
+            const row = document.createElement('div');
+            row.className = 'item-row';
+            row.innerHTML = `
+                <span class="item-row-title">Bay #${idx + 1}</span>
+                <select class="item-row-select" data-type="garage" data-index="${idx}">
+                    <option value="front" ${item.side === 'front' ? 'selected' : ''}>Front Wall</option>
+                    <option value="back" ${item.side === 'back' ? 'selected' : ''}>Back Wall</option>
+                    <option value="left" ${item.side === 'left' ? 'selected' : ''}>Left Wall</option>
+                    <option value="right" ${item.side === 'right' ? 'selected' : ''}>Right Wall</option>
+                </select>
+                <select class="item-row-size-select" data-type="garage-size" data-index="${idx}">
+                    <option value="10" ${item.size === 10 ? 'selected' : ''}>Single (10')</option>
+                    <option value="16" ${item.size === 16 ? 'selected' : ''}>Double (16')</option>
+                </select>
+                <button type="button" class="item-delete-btn" data-type="garage" data-index="${idx}" title="Remove Bay">&times;</button>
+            `;
+            gContainer.appendChild(row);
+        });
+    }
+
+    // 2. Man Doors
+    const mContainer = document.getElementById('mandoor-items-list');
+    const mBadge = document.getElementById('val-mandoor-count');
+    if (mBadge) mBadge.textContent = shopState.manDoorsList.length;
+    if (mContainer) {
+        mContainer.innerHTML = '';
+        shopState.manDoorsList.forEach((item, idx) => {
+            const row = document.createElement('div');
+            row.className = 'item-row';
+            row.innerHTML = `
+                <span class="item-row-title">Door #${idx + 1}</span>
+                <select class="item-row-select" data-type="mandoor" data-index="${idx}">
+                    <option value="front" ${item.side === 'front' ? 'selected' : ''}>Front Wall</option>
+                    <option value="back" ${item.side === 'back' ? 'selected' : ''}>Back Wall</option>
+                    <option value="left" ${item.side === 'left' ? 'selected' : ''}>Left Wall</option>
+                    <option value="right" ${item.side === 'right' ? 'selected' : ''}>Right Wall</option>
+                </select>
+                <button type="button" class="item-delete-btn" data-type="mandoor" data-index="${idx}" title="Remove Door">&times;</button>
+            `;
+            mContainer.appendChild(row);
+        });
+    }
+
+    // 3. Windows
+    const wContainer = document.getElementById('window-items-list');
+    const wBadge = document.getElementById('val-window-count');
+    if (wBadge) wBadge.textContent = shopState.windowsList.length;
+    if (wContainer) {
+        wContainer.innerHTML = '';
+        shopState.windowsList.forEach((item, idx) => {
+            const row = document.createElement('div');
+            row.className = 'item-row';
+            row.innerHTML = `
+                <span class="item-row-title">Window #${idx + 1}</span>
+                <select class="item-row-select" data-type="window" data-index="${idx}">
+                    <option value="front" ${item.side === 'front' ? 'selected' : ''}>Front Wall</option>
+                    <option value="back" ${item.side === 'back' ? 'selected' : ''}>Back Wall</option>
+                    <option value="left" ${item.side === 'left' ? 'selected' : ''}>Left Wall</option>
+                    <option value="right" ${item.side === 'right' ? 'selected' : ''}>Right Wall</option>
+                </select>
+                <button type="button" class="item-delete-btn" data-type="window" data-index="${idx}" title="Remove Window">&times;</button>
+            `;
+            wContainer.appendChild(row);
+        });
+    }
+
+    // Attach listeners to dynamic elements
+    document.querySelectorAll('.item-row-select').forEach(sel => {
+        sel.addEventListener('change', (e) => {
+            const type = e.target.dataset.type;
+            const idx = parseInt(e.target.dataset.index);
+            const side = e.target.value;
+            if (type === 'garage') shopState.garageDoorsList[idx].side = side;
+            if (type === 'mandoor') shopState.manDoorsList[idx].side = side;
+            if (type === 'window') shopState.windowsList[idx].side = side;
+            buildShop();
+            focusCameraOnSide(side);
+        });
+    });
+
+    document.querySelectorAll('.item-row-size-select').forEach(sel => {
+        sel.addEventListener('change', (e) => {
+            const idx = parseInt(e.target.dataset.index);
+            const size = parseInt(e.target.value);
+            shopState.garageDoorsList[idx].size = size;
+            buildShop();
+        });
+    });
+
+    document.querySelectorAll('.item-delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const type = e.target.dataset.type;
+            const idx = parseInt(e.target.dataset.index);
+            if (type === 'garage') shopState.garageDoorsList.splice(idx, 1);
+            if (type === 'mandoor') shopState.manDoorsList.splice(idx, 1);
+            if (type === 'window') shopState.windowsList.splice(idx, 1);
+            renderItemLists();
+            buildShop();
+        });
+    });
+
+    // Sync legacy numbers
+    shopState.garageDoors = shopState.garageDoorsList.length;
+    shopState.manDoors = shopState.manDoorsList.length;
+    shopState.windows = shopState.windowsList.length;
+}
+
+function focusCameraOnSide(side) {
+    if (!camera || !controls) return;
+    const L = shopState.length;
+    const W = shopState.width;
+    const H = shopState.height;
+    const dist = Math.max(W, L) * 1.4 + 15;
+
+    let targetCamX = 0, targetCamY = H + 12, targetCamZ = 0;
+
+    if (side === 'front') {
+        targetCamX = 0; targetCamZ = dist;
+    } else if (side === 'back') {
+        targetCamX = 0; targetCamZ = -dist;
+    } else if (side === 'left') {
+        targetCamX = -dist; targetCamZ = 0;
+    } else if (side === 'right') {
+        targetCamX = dist; targetCamZ = 0;
+    } else if (side === 'both') {
+        targetCamX = -dist * 0.75; targetCamZ = dist * 0.75;
+    }
+
+    camera.position.set(targetCamX, targetCamY, targetCamZ);
+    controls.target.set(0, H / 2, 0);
+    controls.update();
 }
 
 function updateStats() {
@@ -348,10 +708,15 @@ function updateStats() {
     const pitchRatio = shopState.pitch / 12;
     const peakHeight = shopState.height + (shopState.width / 2) * pitchRatio;
 
-    document.getElementById('stat-sqft').textContent = `${sqft.toLocaleString()} sq ft`;
-    document.getElementById('stat-wall-area').textContent = `${Math.round(wallArea).toLocaleString()} sq ft`;
-    document.getElementById('stat-eave').textContent = `${shopState.height}'`;
-    document.getElementById('stat-peak').textContent = `${Math.round(peakHeight)}'`;
+    const elSqft = document.getElementById('stat-sqft');
+    const elWall = document.getElementById('stat-wall-area');
+    const elEave = document.getElementById('stat-eave');
+    const elPeak = document.getElementById('stat-peak');
+
+    if (elSqft) elSqft.textContent = `${sqft.toLocaleString()} sq ft`;
+    if (elWall) elWall.textContent = `${Math.round(wallArea).toLocaleString()} sq ft`;
+    if (elEave) elEave.textContent = `${shopState.height}'`;
+    if (elPeak) elPeak.textContent = `${Math.round(peakHeight)}'`;
 }
 
 function onWindowResize() {
@@ -362,69 +727,125 @@ function onWindowResize() {
     renderer.setSize(container.clientWidth, container.clientHeight);
 }
 
+function sideCounts(list, isGarage = false) {
+    const counts = { front: [], back: [], left: [], right: [] };
+    list.forEach(i => {
+        if (counts[i.side] !== undefined) {
+            const desc = isGarage ? (i.size === 16 ? "Double 16'" : "Single 10'") : "";
+            counts[i.side].push(desc);
+        }
+    });
+    const parts = [];
+    ['front', 'back', 'left', 'right'].forEach(side => {
+        if (counts[side].length > 0) {
+            const name = side.charAt(0).toUpperCase() + side.slice(1);
+            if (isGarage) {
+                const sCount = counts[side].filter(d => d.includes('Single')).length;
+                const dCount = counts[side].filter(d => d.includes('Double')).length;
+                const details = [];
+                if (sCount > 0) details.push(`${sCount}x Single 10'`);
+                if (dCount > 0) details.push(`${dCount}x Double 16'`);
+                parts.push(`${name} Wall (${details.join(', ')})`);
+            } else {
+                parts.push(`${name} Wall (${counts[side].length})`);
+            }
+        }
+    });
+    return parts.length > 0 ? parts.join(' | ') : 'None';
+}
+
 // Bind UI Listeners
 function bindUIEvents() {
     // Dimension Sliders
     const lengthInput = document.getElementById('input-length');
     if (lengthInput) {
-        lengthInput.addEventListener('input', (e) => {
+        const updateLen = (e) => {
             shopState.length = parseInt(e.target.value);
             document.getElementById('val-length').textContent = `${shopState.length}'`;
             buildShop();
-        });
+        };
+        lengthInput.addEventListener('input', updateLen);
+        lengthInput.addEventListener('change', updateLen);
     }
 
     const widthInput = document.getElementById('input-width');
     if (widthInput) {
-        widthInput.addEventListener('input', (e) => {
+        const updateWidth = (e) => {
             shopState.width = parseInt(e.target.value);
             document.getElementById('val-width').textContent = `${shopState.width}'`;
             buildShop();
-        });
+        };
+        widthInput.addEventListener('input', updateWidth);
+        widthInput.addEventListener('change', updateWidth);
     }
 
     const heightInput = document.getElementById('input-height');
     if (heightInput) {
-        heightInput.addEventListener('input', (e) => {
+        const updateH = (e) => {
             shopState.height = parseInt(e.target.value);
             document.getElementById('val-height').textContent = `${shopState.height}'`;
             buildShop();
-        });
+        };
+        heightInput.addEventListener('input', updateH);
+        heightInput.addEventListener('change', updateH);
     }
 
     const pitchInput = document.getElementById('input-pitch');
     if (pitchInput) {
-        pitchInput.addEventListener('input', (e) => {
+        const updatePitch = (e) => {
             shopState.pitch = parseInt(e.target.value);
             document.getElementById('val-pitch').textContent = `${shopState.pitch}/12`;
             buildShop();
-        });
+        };
+        pitchInput.addEventListener('input', updatePitch);
+        pitchInput.addEventListener('change', updatePitch);
     }
 
-    // Door & Window Selectors
-    const garageInput = document.getElementById('input-garage');
-    if (garageInput) {
-        garageInput.addEventListener('change', (e) => {
-            shopState.garageDoors = parseInt(e.target.value);
-            buildShop();
-        });
-    }
+    // Plus / Minus Button Controls
+    document.getElementById('btn-add-garage')?.addEventListener('click', () => {
+        shopState.garageDoorsList.push({ id: Date.now(), side: 'front', size: 10 });
+        renderItemLists();
+        buildShop();
+        focusCameraOnSide('front');
+    });
 
-    const manDoorInput = document.getElementById('input-mandoor');
-    if (manDoorInput) {
-        manDoorInput.addEventListener('change', (e) => {
-            shopState.manDoors = parseInt(e.target.value);
+    document.getElementById('btn-sub-garage')?.addEventListener('click', () => {
+        if (shopState.garageDoorsList.length > 0) {
+            shopState.garageDoorsList.pop();
+            renderItemLists();
             buildShop();
-        });
-    }
+        }
+    });
 
-    const windowInput = document.getElementById('input-windows');
-    if (windowInput) {
-        windowInput.addEventListener('change', (e) => {
-            shopState.windows = parseInt(e.target.value);
+    document.getElementById('btn-add-mandoor')?.addEventListener('click', () => {
+        shopState.manDoorsList.push({ id: Date.now(), side: 'right' });
+        renderItemLists();
+        buildShop();
+        focusCameraOnSide('right');
+    });
+
+    document.getElementById('btn-sub-mandoor')?.addEventListener('click', () => {
+        if (shopState.manDoorsList.length > 0) {
+            shopState.manDoorsList.pop();
+            renderItemLists();
             buildShop();
-        });
-    }
+        }
+    });
+
+    document.getElementById('btn-add-window')?.addEventListener('click', () => {
+        shopState.windowsList.push({ id: Date.now(), side: 'left' });
+        renderItemLists();
+        buildShop();
+        focusCameraOnSide('left');
+    });
+
+    document.getElementById('btn-sub-window')?.addEventListener('click', () => {
+        if (shopState.windowsList.length > 0) {
+            shopState.windowsList.pop();
+            renderItemLists();
+            buildShop();
+        }
+    });
 
     // Style Buttons
     const styleBtns = document.querySelectorAll('.type-btn');
@@ -481,6 +902,7 @@ function bindUIEvents() {
 
     // Modal Events
     const openModalBtn = document.getElementById('btn-open-inquiry');
+    const disclaimerModalLink = document.getElementById('link-disclaimer-modal');
     const modal = document.getElementById('inquiry-modal');
     const closeModalBtn = document.getElementById('btn-close-modal');
 
@@ -491,9 +913,25 @@ function bindUIEvents() {
         });
     }
 
+    if (disclaimerModalLink && modal) {
+        disclaimerModalLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            populateModalSummary();
+            modal.classList.add('open');
+        });
+    }
+
     if (closeModalBtn && modal) {
         closeModalBtn.addEventListener('click', () => {
             modal.classList.remove('open');
+        });
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('open');
+            }
         });
     }
 
@@ -519,9 +957,9 @@ function getFormattedSummaryText() {
 • Roof Pitch: ${shopState.pitch}/12
 • Siding Color: ${shopState.sidingName}
 • Roof Color: ${shopState.roofName}
-• Overhead Garage Doors: ${shopState.garageDoors} Bays (${shopState.garageDoorSize}'x${shopState.garageDoorSize}')
-• Man Entry Doors: ${shopState.manDoors}
-• Windows: ${shopState.windows}
+• Overhead Garage Bays: ${shopState.garageDoorsList.length} Bays [${sideCounts(shopState.garageDoorsList, true)}]
+• Man Entry Doors: ${shopState.manDoorsList.length} Doors [${sideCounts(shopState.manDoorsList)}]
+• Windows: ${shopState.windowsList.length} Windows [${sideCounts(shopState.windowsList)}]
 =========================================================`;
 }
 
@@ -537,7 +975,9 @@ function populateModalSummary() {
             <div class="specs-summary-item"><span>Roof Pitch:</span> <span>${shopState.pitch}/12 (${shopState.style})</span></div>
             <div class="specs-summary-item"><span>Siding:</span> <span>${shopState.sidingName}</span></div>
             <div class="specs-summary-item"><span>Roof Finish:</span> <span>${shopState.roofName}</span></div>
-            <div class="specs-summary-item"><span>Doors / Windows:</span> <span>${shopState.garageDoors} Garage, ${shopState.manDoors} Man, ${shopState.windows} Win</span></div>
+            <div class="specs-summary-item"><span>Garage Bays:</span> <span>${shopState.garageDoorsList.length} Bays [${sideCounts(shopState.garageDoorsList, true)}]</span></div>
+            <div class="specs-summary-item"><span>Man Doors:</span> <span>${shopState.manDoorsList.length} Doors [${sideCounts(shopState.manDoorsList)}]</span></div>
+            <div class="specs-summary-item"><span>Windows:</span> <span>${shopState.windowsList.length} Windows [${sideCounts(shopState.windowsList)}]</span></div>
         </div>
     `;
 }
