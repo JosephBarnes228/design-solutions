@@ -1,15 +1,10 @@
 (function() {
-    // Determine relative path back to root based on current location depth
     var path = window.location.pathname.replace(/\\/g, '/');
-    
-    // Extract path parts to calculate depth
     var parts = path.split('/').filter(function(p) { return p.length > 0; });
     
-    // Ignore GitHub Pages subpath if present
     if (parts.length > 0 && parts[0].toLowerCase() === 'design-solutions') {
         parts.shift();
     }
-    // Remove filename (e.g. index.html) if present
     if (parts.length > 0 && parts[parts.length - 1].indexOf('.html') !== -1) {
         parts.pop();
     }
@@ -27,7 +22,7 @@
     var linkedinImg = r + 'img/linkedin.png';
     var googleImg = r + 'img/google.png';
 
-    // Universal Header Component Markup
+    // Universal Header Component Markup (No duplicate Contact in ul#links)
     var headerHTML = `
         <nav id="navbar">
             <div id="header-logo">
@@ -39,7 +34,6 @@
                 <li><a href="${shopsLink}">3D Shop Configurator</a></li>
                 <li><a href="${articlesLink}">Articles</a></li>
                 <li><a href="${aboutLink}">About</a></li>
-                <li class="desktop-invis"><a href="${contactLink}">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
@@ -48,7 +42,7 @@
                 <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
                     <img src="${googleImg}" alt="Google Reviews">
                 </a>
-                <a href="${contactLink}" class="btn-primary mobile-invis" id="header-contact">Contact Us</a>
+                <a href="${contactLink}" class="btn-primary" id="header-contact">Contact Us</a>
                 <div class="hamburger" id="hamburger-btn">
                     <div class="bars">
                         <div></div>
@@ -105,6 +99,7 @@
         // Highlight Active Page Link in Navbar
         var p = window.location.pathname.toLowerCase().replace(/\\/g, '/');
         var navLinks = document.querySelectorAll('#links li a');
+        var contactBtn = document.getElementById('header-contact');
         
         var isServices = (p.indexOf('/services') !== -1);
         var isShops = (p.indexOf('/shops') !== -1);
@@ -127,10 +122,18 @@
                 link.classList.add('active');
             } else if (isAbout && text === 'about') {
                 link.classList.add('active');
-            } else if (isContact && text === 'contact') {
-                link.classList.add('active');
             }
         });
+
+        if (contactBtn) {
+            if (isContact) {
+                contactBtn.classList.add('active');
+                contactBtn.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.6)';
+            } else {
+                contactBtn.classList.remove('active');
+                contactBtn.style.boxShadow = '';
+            }
+        }
 
         // Mobile Hamburger toggle
         var hamburgerBtn = document.getElementById('hamburger-btn');
