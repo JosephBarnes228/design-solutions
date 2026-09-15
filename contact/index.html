@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Design Solutions</title>
     <meta name="description" content="Connect with Design Solutions in Ridgefield WA. Phone: (360) 693-5161, Email: designguyrob@gmail.com. Custom home plans and 3D shop blueprints.">
-    <link rel="stylesheet" href="/styles/globalStyles.css">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="/styles/headerDisplay.js" defer></script>
+    <script src="../styles/headerDisplay.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="email.js" defer></script>
@@ -20,43 +19,47 @@
         <header id="header" class="header"></header>
 
     <!-- CONTACT MAIN CONTENT -->
-    <main class="section-container" style="margin-top: 3rem;">
-        <div class="section-header">
-            <h1 class="section-title">Get In Touch</h1>
-            <p class="section-subtitle">Have questions about starting your custom home plan, addition, remodel, or 3D shop CAD blueprints? We'd love to discuss your vision.</p>
+    <main class="main-container" style="max-width: 1150px; margin: 4rem auto 6rem; padding: 0 1.5rem;">
+        <div class="page-header" style="text-align: center; margin-bottom: 4rem;">
+            <h1 class="page-title" style="font-size: 2.8rem; margin-bottom: 1rem;">Get In Touch</h1>
+            <p class="section-intro" style="margin: 0 auto; max-width: 750px; font-size: 1.15rem; color: var(--text-secondary);">Have questions about starting your custom home plan, addition, remodel, or 3D shop CAD blueprints? We'd love to discuss your vision.</p>
         </div>
 
-        <div class="why-grid glass-card" style="padding: 3.5rem; margin-bottom: 3rem;">
-            <div>
-                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Contact Information</h3>
-                
-                <div class="contact-info-list">
-                    <div class="contact-info-item">
-                        <span class="contact-info-label">Office Location</span>
-                        <span class="contact-info-value">5003 NW 189th Street, Ridgefield, WA 98642</span>
-                        <a href="https://goo.gl/maps/Li284h7ZiT6ZJy8w5" target="_blank" style="font-size:0.9rem; margin-top:0.25rem;">📍 View Driving Directions</a>
-                    </div>
+        <div class="contact-grid">
+            <!-- Left Info Panel -->
+            <div class="contact-info-card glass-card">
+                <div>
+                    <h3 style="font-size: 1.75rem; color: #FFFFFF; margin-bottom: 2rem;">Contact Information</h3>
                     
-                    <div class="contact-info-item" style="margin-top:0.75rem;">
-                        <span class="contact-info-label">Phone</span>
-                        <span class="contact-info-value"><a href="tel:3606935161">(360) 693-5161</a></span>
-                    </div>
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <span class="contact-info-label">Office Location</span>
+                            <span class="contact-info-value">5003 NW 189th Street, Ridgefield, WA 98642</span>
+                            <a href="https://goo.gl/maps/Li284h7ZiT6ZJy8w5" target="_blank" style="font-size:0.9rem; margin-top:0.35rem; color: var(--accent-blue);">📍 View Driving Directions</a>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <span class="contact-info-label">Phone</span>
+                            <span class="contact-info-value"><a href="tel:3606935161" style="color: var(--text-primary);">(360) 693-5161</a></span>
+                        </div>
 
-                    <div class="contact-info-item" style="margin-top:0.75rem;">
-                        <span class="contact-info-label">Email</span>
-                        <span class="contact-info-value"><a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a></span>
+                        <div class="contact-info-item">
+                            <span class="contact-info-label">Email</span>
+                            <span class="contact-info-value"><a href="mailto:designguyrob@gmail.com" style="color: var(--text-primary);">designguyrob@gmail.com</a></span>
+                        </div>
                     </div>
                 </div>
 
-                <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border-highlight); padding: 1.25rem; border-radius: var(--radius-md); margin-top: 2rem;">
-                    <h4 style="color: var(--accent-blue); margin-bottom: 0.4rem;">Building a Custom Shop or Barn?</h4>
-                    <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0.75rem;">Try our interactive 3D Shop Configurator to customize dimensions and send pre-formatted CAD requests directly to Rob.</p>
-                    <a href="/shops/" class="btn-primary" style="font-size:0.85rem; padding: 0.5rem 1rem;">Launch 3D Configurator</a>
+                <div class="shop-teaser-box">
+                    <h4 style="color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 0.5rem;">Building a Custom Shop or Barn?</h4>
+                    <p style="font-size:0.95rem; color:var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">Try our interactive 3D Shop Configurator to customize dimensions and send pre-formatted CAD requests directly to Rob.</p>
+                    <a href="../shops/" class="btn-primary" style="font-size:0.85rem; padding: 0.6rem 1.2rem;">Launch 3D Configurator</a>
                 </div>
             </div>
 
-            <div class="contact-form-card">
-                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Send Us a Message</h3>
+            <!-- Right Form Panel -->
+            <div class="contact-form-card glass-card">
+                <h3 style="font-size: 1.75rem; color: #FFFFFF; margin-bottom: 2rem;">Send Us a Message</h3>
                 <form id="form" onsubmit="return false;">
                     <div class="form-group">
                         <label>Your Name <i>*</i></label>

@@ -1,1 +1,130 @@
-/* Cleaned up legacy overrides - using globalStyles.css */
+/* Contact Page Spacing & Layout */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3.5rem;
+    align-items: stretch;
+    width: 100%;
+}
+
+.contact-info-card,
+.contact-form-card {
+    padding: 3.25rem 2.75rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.contact-info-label {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-gold);
+    font-weight: 700;
+}
+
+.contact-info-value {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.shop-teaser-box {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    padding: 1.75rem;
+    border-radius: var(--radius-md);
+    margin-top: auto;
+}
+
+.form-group {
+    margin-bottom: 1.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+}
+
+.form-group label i {
+    color: #EF4444;
+    font-style: normal;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.95rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: rgba(11, 15, 23, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: all var(--transition-fast);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--accent-blue);
+    background: rgba(18, 24, 38, 0.95);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+#send-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: var(--radius-md);
+    margin-top: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.45);
+}
+
+@media only screen and (max-width: 960px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-info-card,
+    .contact-form-card {
+        padding: 2.25rem 1.75rem;
+    }
+}
