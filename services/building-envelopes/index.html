@@ -1,113 +1,135 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Building Envelopes | Design Solutions</title>
-        <meta name="description" content="In addition to traditional framing, we offer options for advanced framing, insulated concrete forms, passive solar, and timber framing to fit your needs.">
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <link rel="stylesheet" href="./style.css">
-        <link rel="stylesheet" href="/styles/globalStyles.css">
-        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="/styles/headerDisplay.js" defer></script>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-    </head>
-    <body><div>
-        <!--HEADER-->
-        <div id='header' class="header">
-            <ul id="navbar">
-                <li id='header-logo'><img id='logo' src="/img/logo.png" onclick="window.location='/'"></li>
-                <div id='links' class="links">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/services/index.html">Services</a></li>
-                    <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
-                    <li><a href="/articles/index.html">Articles</a></li>
-                    <li><a href="/about/index.html">About</a></li>
-                    <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
-                    <li class="mobile-invis"><img id="google-icon" src="/img/google.png" onclick="window.open('https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,', '_blank')"></li>
-                    <li class="mobile-invis"><button id="header-contact" onClick="window.open('/contact', '_self')">Contact Us</button></li>
-                </div>
-                <li class="hamburger">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Envelopes | Design Solutions</title>
+    <meta name="description" content="Explore advanced wall envelope options including Advanced Framing (OVE), Passive Solar, Heavy Timber Framing, and Insulated Concrete Forms (ICF).">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/styles/headerDisplay.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER NAVIGATION -->
+    <header id="header">
+        <nav id="navbar">
+            <div id="header-logo">
+                <img id="logo" src="/img/logo.png" alt="Design Solutions Logo" onclick="window.location='/'">
+            </div>
+            <ul id="links" class="links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/services/index.html" class="active">Services</a></li>
+                <li><a href="/shops/index.html">Shops 3D</a></li>
+                <li><a href="/articles/index.html">Articles</a></li>
+                <li><a href="/about/index.html">About</a></li>
+                <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
+                    <img src="/img/linkedin.png" alt="LinkedIn">
+                </a>
+                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington" target="_blank" title="Google Reviews">
+                    <img src="/img/google.png" alt="Google">
+                </a>
+                <button id="header-contact" class="mobile-invis" onclick="window.location.href='/contact/index.html'">Contact Us</button>
+                <div class="hamburger">
                     <div class="bars">
                         <div></div>
                         <div></div>
                         <div></div>
-                  </div>
-                </li>
-            </ul>
-        </div>
-        <!--END HEADER-->
-        <div id="content-info-container">
-            <div id="content-info">
-                <h3>Building Envelopes</h3>
-                <div class="envelope-container">
-                    <img src="/img/advanced-framing.jpg">
-                    <div class="envelope-text">
-                        <h4>Advanced Framing</h4>
-                        <p>
-                            Advanced Framing accomplishes two goals that go hand in hand. First, this method eliminates superfluous wall framing which saves on lumber costs. With the reduction of lumber more insulation can be added which provides long term energy savings. Advanced Framing or O.V.E (Optimal Value Engineering) is most effective when the home is designed specifically with this method in mind. Here is how it works:
-                            <a href="./advanced-framing/">...read more</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="envelope-container">
-                    <img src="/img/passive-solar.jpg">
-                    <div class="envelope-text">
-                        <h4>Passive Solar</h4>
-                        <p>Five elements function together to successfully create a passive solar home.</p>
-                        <p>
-                            Aperture: Windows or “glazing” play an extremely important role in keeping heat in or out of a building. Ideal orientation for solar glazing is within five degrees of true south. This means that the building should be placed in an east-west direction with the majority of glazing facing south. A typical home design will have about twenty five percent southern facing windows which amounts to approximately three percent of the total floor area. A passive solar home increases this to about seven
-                            <a href="./passive-solar/">...read more</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="envelope-container">
-                    <img src="/img/timber-framing.jpg">
-                    <div class="envelope-text">
-                        <h4>	
-                            Timber Framing</h4>
-                        <p>
-                            Timber frame construction provides a sense of warmth, longevity, and artistry that surpasses traditional building methods. With structural members crafted from large timbers connected with mortise and tenon joinery, you immediately experience the craftsmanship and simplicity that these homes boast. Whether you seek a traditional, contemporary, or rustic atmosphere, timber frames allow for tremendous design flexibility and individuality
-                            <a href="./timber-framing/">...read more</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="envelope-container">
-                    <img src="/img/icf.jpg">
-                    <div class="envelope-text">
-                        <h4>Insulated Concrete Forms</h4>
-                        <p>
-                            Insulated Concrete Forms ( or ICF’s) offer many benefits that other building methods do not. ICF’s consist of 2 layers of rigid foam spaced apart by a plastic web. These interlocking, lightweight blocks stack upon one another like Lego blocks forming a hollow wall cavity in which to pour the reinforced concrete. The outer layers of Expanded Polystyrene (EPS) insulate a home in the way a foam coffee cup keeps coffee warm and your hand cool. Consider some reasons why ICF’s may be the right choice for you
-                            <a href="./insulated-concrete-forms/">...read more</a>
-                        </p>
                     </div>
                 </div>
             </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="section-container" style="margin-top: 3rem;">
+        <div class="section-header">
+            <h1 class="section-title">Advanced Building Envelopes</h1>
+            <p class="section-subtitle">Selecting structural wall assemblies that optimize thermal efficiency, material conservation, and architectural beauty.</p>
         </div>
 
-        <!--FOOTER-->
-        </div><div><div id="footer">
-            <div class="footer-section">
-                <h4>Explore</h4>
-                <a href="/">Home</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact</a>
-                <a href="/articles">Articles</a>
-                <a href="/about">About</a>
+        <div class="services-grid">
+            <!-- Envelope 1: Advanced Framing -->
+            <div class="service-card glass-card">
+                <div class="service-card-img">
+                    <img src="/img/advanced-framing.jpg" alt="Advanced Framing OVE">
+                </div>
+                <div class="service-card-body">
+                    <h3>Advanced Framing (O.V.E.)</h3>
+                    <p>Eliminates superfluous wall framing to save lumber costs while increasing cavity space for higher R-value insulation.</p>
+                </div>
+            </div>
+
+            <!-- Envelope 2: Passive Solar -->
+            <div class="service-card glass-card">
+                <div class="service-card-img">
+                    <img src="/img/passive-solar.jpg" alt="Passive Solar Design">
+                </div>
+                <div class="service-card-body">
+                    <h3>Passive Solar Architecture</h3>
+                    <p>Strategic window aperture sizing and southern glazing orientation to naturally heat and cool the home.</p>
+                </div>
+            </div>
+
+            <!-- Envelope 3: Timber Framing -->
+            <div class="service-card glass-card">
+                <div class="service-card-img">
+                    <img src="/img/timber-framing.jpg" alt="Heavy Timber Framing">
+                </div>
+                <div class="service-card-body">
+                    <h3>Timber Framing</h3>
+                    <p>Crafted mortise and tenon joinery offering warmth, open soaring post-and-beam spaces, and timeless artistry.</p>
+                </div>
+            </div>
+
+            <!-- Envelope 4: ICF -->
+            <div class="service-card glass-card">
+                <div class="service-card-img">
+                    <img src="/img/icf.jpg" alt="Insulated Concrete Forms ICF">
+                </div>
+                <div class="service-card-body">
+                    <h3>Insulated Concrete Forms (ICF)</h3>
+                    <p>Interlocking EPS foam blocks filled with reinforced concrete for exceptional sound attenuation and thermal mass.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-wrapper">
+        <div id="footer">
+            <div class="footer-brand">
+                <h3>DESIGN SOLUTIONS</h3>
+                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Navigation</h4>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/shops">3D Shop Configurator</a>
+                <a href="/articles">Articles</a>
+                <a href="/about">About Us</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
                 <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
                 <a href="tel:3606935161">360.693.5161</a>
+                <a href="/contact">Schedule Consultation</a>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
-                <a target="_blank" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,">Google Reviews</a>
+                <a target="_blank" href="https://www.google.com/search?q=design+solutions+ridgefield+washington">Google Reviews</a>
                 <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
             </div>
         </div>
-        <div id="footer-copyright">© Copyright Design Solutions - 2012-2022</div></div>
-        <!--END FOOTER-->
-    </div></body>
+        <div id="footer-copyright">
+            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
 </html>

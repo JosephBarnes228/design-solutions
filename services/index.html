@@ -1,92 +1,152 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Services | Design Solutions</title>
-        <meta name="description" content="We provide site design and 3D modeling for custom home plans, additions, remodels, ADU's, and shops and also have a vast array of stock plans available.">
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <link rel="stylesheet" href="./style.css">
-        <link rel="stylesheet" href="/styles/globalStyles.css">
-        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="/styles/headerDisplay.js" defer></script>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-    </head>
-    <body><div>
-        <!--HEADER-->
-        <div id='header' class="header">
-            <ul id="navbar">
-                <li id='header-logo'><img id='logo' src="/img/logo.png" onclick="window.location='/'"></li>
-                <div id='links' class="links">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/services/index.html">Services</a></li>
-                    <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
-                    <li><a href="/articles/index.html">Articles</a></li>
-                    <li><a href="/about/index.html">About</a></li>
-                    <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
-                    <li class="mobile-invis"><img id="google-icon" src="/img/google.png" onclick="window.open('https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,', '_blank')"></li>
-                    <li class="mobile-invis"><button id="header-contact" onClick="window.open('/contact', '_self')">Contact Us</button></li>
-                </div>
-                <li class="hamburger">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Design Solutions</title>
+    <meta name="description" content="We provide site design and 3D modeling for custom home plans, additions, remodels, ADUs, and custom shops along with a vast array of stock plans.">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/styles/headerDisplay.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER NAVIGATION -->
+    <header id="header">
+        <nav id="navbar">
+            <div id="header-logo">
+                <img id="logo" src="/img/logo.png" alt="Design Solutions Logo" onclick="window.location='/'">
+            </div>
+            <ul id="links" class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/shops/">Shops 3D</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="/about/">About</a></li>
+                <li class="desktop-invis"><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
+                    <img src="/img/linkedin.png" alt="LinkedIn">
+                </a>
+                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
+                    <img src="/img/google.png" alt="Google">
+                </a>
+                <button id="header-contact" class="mobile-invis" onclick="window.location.href='/contact/'">Contact Us</button>
+                <div class="hamburger">
                     <div class="bars">
                         <div></div>
                         <div></div>
                         <div></div>
-                  </div>
-                </li>
-            </ul>
-        </div>
-        <!--END HEADER-->
-        <h3 class="services-header">Our Services</h3>
-        <div>
-            <div id="content-info">
-                <p>At Design Solutions, we take a synergistic approach when combining floor plans, exterior facades, site planning, material conservation, and resale. Click the below buttons to learn more about the various factors we take into consideration when designing.</p>
-            </div>
-            <div class="services-container">
-                <div class="services-img-container" onClick="window.open('/services/custom-plans', '_self')">
-                    <img class="services" src="/img/custom-plan.jpg">
-                    <div class="services-text custom-plans-services-text">Custom Plans</div>
-                </div>
-                <div class="services-img-container" onClick="window.open('/services/remodels', '_self')">
-                    <img class="services" src="/img/remodel.jpg">
-                    <div class="services-text">Remodels</div>
-                </div>
-                <!-- <div id="flex-break"></div> -->
-                <div class="services-img-container" onClick="window.open('/services/stock-plans', '_self')">
-                    <img class="services" src="/img/blueprint.jpg">
-                    <div class="services-text">Stock Plans</div>
-                </div>
-                <div class="services-img-container" onClick="window.open('/services/site-design', '_self')">
-                    <img class="services" src="/img/site-design.jpg">
-                    <div class="services-text">Site Design</div>
-                </div>
-                <!-- <div id="flex-break"></div> -->
-                <div class="services-img-container" onClick="window.open('/services/sustainability', '_self')">
-                    <img class="services" src="/img/sustainability.jpg">
-                    <div class="services-text">Sustainability</div>
-                </div>
-                <div class="services-img-container" onClick="window.open('/services/building-envelopes', '_self')">
-                    <img class="services" src="/img/passive-solar.jpg">
-                    <div class="services-text building-envelopes-services-text">Building Envelopes</div>
+                    </div>
                 </div>
             </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="section-container" style="margin-top: 3rem;">
+        <div class="section-header">
+            <h1 class="section-title">Architectural & Residential Design Services</h1>
+            <p class="section-subtitle">At Design Solutions, we take a synergistic approach when combining floor plans, exterior facades, site planning, material conservation, and resale value. Explore our specialized services below.</p>
         </div>
 
-        <!--FOOTER-->
-        </div><div><div id="footer">
-            <div class="footer-section">
-                <h4>Explore</h4>
-                <a href="/">Home</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact</a>
-                <a href="/articles">Articles</a>
-                <a href="/about">About</a>
+        <div class="services-grid">
+            <!-- Service 1: Custom Plans -->
+            <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='/services/custom-plans/'">
+                <div class="service-card-img">
+                    <img src="/img/custom-plan.jpg" alt="Custom Home Plans">
+                </div>
+                <div class="service-card-body">
+                    <h3>Custom Home Plans</h3>
+                    <p>Tailored home design balancing functional space flow, aesthetic elevations, and site-specific views.</p>
+                    <span class="service-card-link">Learn More &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Service 2: Remodels -->
+            <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='/services/remodels/'">
+                <div class="service-card-img">
+                    <img src="/img/remodel.jpg" alt="Remodels & Additions">
+                </div>
+                <div class="service-card-body">
+                    <h3>Remodels & Additions</h3>
+                    <p>Enhance existing living spaces, kitchen layouts, and master suites with seamless structural integration.</p>
+                    <span class="service-card-link">Learn More &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Service 3: Stock Plans -->
+            <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='/services/stock-plans/'">
+                <div class="service-card-img">
+                    <img src="/img/blueprint.jpg" alt="Stock House Plans">
+                </div>
+                <div class="service-card-body">
+                    <h3>Stock House Plans</h3>
+                    <p>Explore pre-engineered custom plans ready for immediate adaptation and building permit submittal.</p>
+                    <span class="service-card-link">Learn More &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Service 4: Site Design -->
+            <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='/services/site-design/'">
+                <div class="service-card-img">
+                    <img src="/img/site-design.jpg" alt="Site Design">
+                </div>
+                <div class="service-card-body">
+                    <h3>Site Design</h3>
+                    <p>Optimize building placement for solar exposure, views, privacy, drainage, and local setbacks.</p>
+                    <span class="service-card-link">Learn More &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Service 5: Sustainability -->
+            <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='/services/sustainability/'">
+                <div class="service-card-img">
+                    <img src="/img/sustainability.jpg" alt="Sustainability & Energy Efficiency">
+                </div>
+                <div class="service-card-body">
+                    <h3>Sustainability</h3>
+                    <p>Energy-efficient materials, passive heating/cooling strategies, and resource conservation.</p>
+                    <span class="service-card-link">Learn More &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Service 6: Building Envelopes -->
+            <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='/services/building-envelopes/'">
+                <div class="service-card-img">
+                    <img src="/img/passive-solar.jpg" alt="Building Envelopes">
+                </div>
+                <div class="service-card-body">
+                    <h3>Building Envelopes</h3>
+                    <p>Advanced insulation detailing, air barrier design, ICF, and thermal performance optimization.</p>
+                    <span class="service-card-link">Learn More &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer-wrapper">
+        <div id="footer">
+            <div class="footer-brand">
+                <h3>DESIGN SOLUTIONS</h3>
+                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Navigation</h4>
+                <a href="/">Home</a>
+                <a href="/services/">Services</a>
+                <a href="/shops/">3D Shop Configurator</a>
+                <a href="/articles/">Articles</a>
+                <a href="/about/">About Us</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
                 <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
                 <a href="tel:3606935161">360.693.5161</a>
+                <a href="/contact/">Schedule Consultation</a>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
@@ -94,7 +154,10 @@
                 <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
             </div>
         </div>
-        <div id="footer-copyright">© Copyright Design Solutions - 2012-2022</div></div>
-        <!--END FOOTER-->
-    </div></body>
+        <div id="footer-copyright">
+            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
 </html>

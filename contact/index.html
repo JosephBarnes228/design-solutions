@@ -1,92 +1,140 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Contact Us | Design Solutions</title>
-        <meta name="description" content="Design Solutions is located at 5003 NW 189th St, Ridgefield, WA 98642. We look forward to connecting with you at (360) 693-5161 or designguyrob@gmail.com.">
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <link rel="stylesheet" href="./style.css">
-        <link rel="stylesheet" href="/styles/globalStyles.css">
-        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-        <script src="https://www.w3schools.com/lib/w3data.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="/styles/headerDisplay.js" defer></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="email.js" defer></script>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-    </head>
-    <body><div>
-        <!--HEADER-->
-        <div id='header' class="header">
-            <ul id="navbar">
-                <li id='header-logo'><img id='logo' src="/img/logo.png" onclick="window.location='/'"></li>
-                <div id='links' class="links">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/services/index.html">Services</a></li>
-                    <li class="desktop-invis"><a href="/contact/index.html">Contact</a></li>
-                    <li><a href="/articles/index.html">Articles</a></li>
-                    <li><a href="/about/index.html">About</a></li>
-                    <li class="mobile-invis"><img id="linkedin" src="/img/linkedin.png" onclick="window.open('https://www.linkedin.com/in/rob-barnes-83904142', '_blank')"></li>
-                    <li class="mobile-invis"><img id="google-icon" src="/img/google.png" onclick="window.open('https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,', '_blank')"></li>
-                    <li class="mobile-invis"><button id="header-contact" onClick="window.open('/contact', '_self')">Contact Us</button></li>
-                </div>
-                <li class="hamburger">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Design Solutions</title>
+    <meta name="description" content="Connect with Design Solutions in Ridgefield WA. Phone: (360) 693-5161, Email: designguyrob@gmail.com. Custom home plans and 3D shop blueprints.">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="/styles/headerDisplay.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="email.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER NAVIGATION -->
+    <header id="header">
+        <nav id="navbar">
+            <div id="header-logo">
+                <img id="logo" src="/img/logo.png" alt="Design Solutions Logo" onclick="window.location='/'">
+            </div>
+            <ul id="links" class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/shops/">Shops 3D</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="/about/">About</a></li>
+                <li class="desktop-invis"><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
+                    <img src="/img/linkedin.png" alt="LinkedIn">
+                </a>
+                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
+                    <img src="/img/google.png" alt="Google">
+                </a>
+                <button id="header-contact" class="mobile-invis" onclick="window.location.href='/contact/'">Contact Us</button>
+                <div class="hamburger">
                     <div class="bars">
                         <div></div>
                         <div></div>
                         <div></div>
-                  </div>
-                </li>
-            </ul>
-        </div>
-        <!--END HEADER-->
-
-        <div id="content-info-container">
-            <div id="content-info">
-                <h3>Contact Us</h3>
-                <p>
-                    <ul>
-                        <li>Office: 5003 NW 189th Street Ridgefield (<a href="https://goo.gl/maps/Li284h7ZiT6ZJy8w5">driving directions</a>)</li>
-                        <li>Please contact us by phone at <a href="tel: 3606935161"> 360-693-5161</a>, by email at <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>, or by using the form below.</li>
-                    </ul>
-                </p>
-                <div id="contact-form">
-                    <form onsubmit="return false;" id="form">
-                        Name <i>*</i><br>
-                        <input name="from_user" type="text" class="name" id="fullname" required>
-                        <br>
-                        Email Address <i>*</i><br>
-                        <input name="from_user_email" type="email" id="email" required>
-                        <br>
-                        Message <i>*</i><br>
-                        <textarea name="message" id="message" rows="5" required></textarea>
-                        <br>
-                        <div class="cell">
-                            <button id="send-button" type="submit" data-ripple class="mad-button-raised mad-ico-left bg-primary">Submit</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <script type="text/javascript">
-            emailjs.init('user_sw5MPBqm6HF7SoihlF6C1')
-        </script>
+        </nav>
+    </header>
 
-        <!--FOOTER-->
-        </div><div><div id="footer">
-            <div class="footer-section">
-                <h4>Explore</h4>
-                <a href="/">Home</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact</a>
-                <a href="/articles">Articles</a>
-                <a href="/about">About</a>
+    <!-- CONTACT MAIN CONTENT -->
+    <main class="section-container" style="margin-top: 3rem;">
+        <div class="section-header">
+            <h1 class="section-title">Get In Touch</h1>
+            <p class="section-subtitle">Have questions about starting your custom home plan, addition, remodel, or 3D shop CAD blueprints? We'd love to discuss your vision.</p>
+        </div>
+
+        <div class="why-grid glass-card" style="padding: 3.5rem; margin-bottom: 3rem;">
+            <div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Contact Information</h3>
+                
+                <div class="contact-info-list">
+                    <div class="contact-info-item">
+                        <span class="contact-info-label">Office Location</span>
+                        <span class="contact-info-value">5003 NW 189th Street, Ridgefield, WA 98642</span>
+                        <a href="https://goo.gl/maps/Li284h7ZiT6ZJy8w5" target="_blank" style="font-size:0.9rem; margin-top:0.25rem;">📍 View Driving Directions</a>
+                    </div>
+                    
+                    <div class="contact-info-item" style="margin-top:0.75rem;">
+                        <span class="contact-info-label">Phone</span>
+                        <span class="contact-info-value"><a href="tel:3606935161">(360) 693-5161</a></span>
+                    </div>
+
+                    <div class="contact-info-item" style="margin-top:0.75rem;">
+                        <span class="contact-info-label">Email</span>
+                        <span class="contact-info-value"><a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a></span>
+                    </div>
+                </div>
+
+                <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border-highlight); padding: 1.25rem; border-radius: var(--radius-md); margin-top: 2rem;">
+                    <h4 style="color: var(--accent-blue); margin-bottom: 0.4rem;">Building a Custom Shop or Barn?</h4>
+                    <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0.75rem;">Try our interactive 3D Shop Configurator to customize dimensions and send pre-formatted CAD requests directly to Rob.</p>
+                    <a href="/shops/" class="btn-primary" style="font-size:0.85rem; padding: 0.5rem 1rem;">Launch 3D Configurator</a>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Send Us a Message</h3>
+                <form id="form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label>Your Name <i>*</i></label>
+                        <input type="text" name="from_user" id="fullname" class="form-input" placeholder="e.g. John Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address <i>*</i></label>
+                        <input type="email" name="from_user_email" id="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message <i>*</i></label>
+                        <textarea name="message" id="message" class="form-textarea" rows="5" placeholder="Tell us about your home design goals, lot location, or project timeline..." required></textarea>
+                    </div>
+
+                    <button id="send-button" type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init('user_sw5MPBqm6HF7SoihlF6C1');
+        }
+    </script>
+
+    <!-- FOOTER -->
+    <footer id="footer-wrapper">
+        <div id="footer">
+            <div class="footer-brand">
+                <h3>DESIGN SOLUTIONS</h3>
+                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Navigation</h4>
+                <a href="/">Home</a>
+                <a href="/services/">Services</a>
+                <a href="/shops/">3D Shop Configurator</a>
+                <a href="/articles/">Articles</a>
+                <a href="/about/">About Us</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
                 <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
                 <a href="tel:3606935161">360.693.5161</a>
+                <a href="/contact/">Schedule Consultation</a>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
@@ -94,7 +142,10 @@
                 <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
             </div>
         </div>
-        <div id="footer-copyright">© Copyright Design Solutions - 2012-2022</div></div>
-        <!--END FOOTER-->
-    </div></body>
+        <div id="footer-copyright">
+            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
 </html>

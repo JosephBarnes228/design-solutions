@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Shop Configurator | Design Solutions Vancouver WA</title>
+    <meta name="description" content="Design and customize your custom shop, pole barn, or garage in 3D. Adjust dimensions, roof styles, siding colors, and request CAD blueprints from our architectural designer.">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="/styles/headerDisplay.js" defer></script>
+    <script type="module" src="./configurator.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER NAVBAR -->
+    <header id="header">
+        <nav id="navbar">
+            <div id="header-logo">
+                <img id="logo" src="/img/logo.png" alt="Design Solutions Logo" onclick="window.location='/'">
+            </div>
+            <ul id="links" class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/shops/">Shops 3D</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="/about/">About</a></li>
+                <li class="desktop-invis"><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
+                    <img src="/img/linkedin.png" alt="LinkedIn">
+                </a>
+                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
+                    <img src="/img/google.png" alt="Google">
+                </a>
+                <button id="header-contact" class="mobile-invis" onclick="window.location.href='/contact/'">Contact Us</button>
+                <div class="hamburger">
+                    <div class="bars">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONFIGURATOR CONTAINER -->
+    <main class="configurator-wrapper">
+        <div class="configurator-header">
+            <h1>3D Custom Shop Configurator</h1>
+            <p>Tailor your custom pole barn, workshop, or garage. Adjust dimensions, wall height, colors, and doors in real-time. Once designed, click to submit your specs directly to our designer to launch your custom CAD blueprint drawings.</p>
+        </div>
+
+        <div class="configurator-grid">
+            <!-- CONTROL PANEL (LEFT) -->
+            <aside class="control-panel glass-card">
+                <!-- Section 1: Style Preset -->
+                <div class="control-section">
+                    <div class="control-section-title">1. Building Style</div>
+                    <div class="type-selector">
+                        <button class="type-btn active" data-style="gable">Gable Barn</button>
+                        <button class="type-btn" data-style="monoslope">Monoslope</button>
+                        <button class="type-btn" data-style="gambrel">Gambrel Barn</button>
+                    </div>
+                </div>
+
+                <!-- Section 2: Dimensions -->
+                <div class="control-section">
+                    <div class="control-section-title">2. Building Dimensions</div>
+                    
+                    <div class="control-group">
+                        <label>Length: <span id="val-length" class="val-badge">40'</span></label>
+                        <input type="range" id="input-length" min="20" max="100" step="2" value="40">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Width: <span id="val-width" class="val-badge">30'</span></label>
+                        <input type="range" id="input-width" min="16" max="80" step="2" value="30">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Wall Eave Height: <span id="val-height" class="val-badge">14'</span></label>
+                        <input type="range" id="input-height" min="10" max="22" step="1" value="14">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Roof Pitch: <span id="val-pitch" class="val-badge">4/12</span></label>
+                        <input type="range" id="input-pitch" min="3" max="8" step="1" value="4">
+                    </div>
+                </div>
+
+                <!-- Section 3: Colors & Finishes -->
+                <div class="control-section">
+                    <div class="control-section-title">3. Colors & Siding</div>
+                    
+                    <div class="control-group">
+                        <label>Wall Siding Finish:</label>
+                        <div class="swatch-group">
+                            <div class="swatch siding-swatch active" style="background:#2D3748" data-color="2D3748" data-name="Slate Charcoal" title="Slate Charcoal"></div>
+                            <div class="swatch siding-swatch" style="background:#1A202C" data-color="1A202C" data-name="Matte Black" title="Matte Black"></div>
+                            <div class="swatch siding-swatch" style="background:#2B6CB0" data-color="2B6CB0" data-name="Pacific Navy" title="Pacific Navy"></div>
+                            <div class="swatch siding-swatch" style="background:#9B2C2C" data-color="9B2C2C" data-name="Rustic Barn Red" title="Rustic Barn Red"></div>
+                            <div class="swatch siding-swatch" style="background:#22543D" data-color="22543D" data-name="Forest Green" title="Forest Green"></div>
+                            <div class="swatch siding-swatch" style="background:#D69E2E" data-color="D69E2E" data-name="Cedar Gold" title="Cedar Gold"></div>
+                            <div class="swatch siding-swatch" style="background:#E2E8F0" data-color="E2E8F0" data-name="Pure White" title="Pure White"></div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Roof Metal Finish:</label>
+                        <div class="swatch-group">
+                            <div class="swatch roof-swatch active" style="background:#1A202C" data-color="1A202C" data-name="Matte Black" title="Matte Black"></div>
+                            <div class="swatch roof-swatch" style="background:#4A5568" data-color="4A5568" data-name="Charcoal Grey" title="Charcoal Grey"></div>
+                            <div class="swatch roof-swatch" style="background:#CBD5E0" data-color="CBD5E0" data-name="Galvalume Silver" title="Galvalume Silver"></div>
+                            <div class="swatch roof-swatch" style="background:#742A2A" data-color="742A2A" data-name="Crimson Metal" title="Crimson Metal"></div>
+                            <div class="swatch roof-swatch" style="background:#1C4532" data-color="1C4532" data-name="Hunter Green" title="Hunter Green"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Doors & Windows -->
+                <div class="control-section">
+                    <div class="control-section-title">4. Doors & Windows</div>
+                    
+                    <div class="control-group">
+                        <label>Overhead Garage Doors:</label>
+                        <select id="input-garage" class="form-input">
+                            <option value="0">0 Garage Bays</option>
+                            <option value="1">1 Garage Bay</option>
+                            <option value="2" selected>2 Garage Bays</option>
+                            <option value="3">3 Garage Bays</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Entry Man Doors:</label>
+                        <select id="input-mandoor" class="form-input">
+                            <option value="0">0 Man Doors</option>
+                            <option value="1" selected>1 Entry Door</option>
+                            <option value="2">2 Entry Doors</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Side Windows:</label>
+                        <select id="input-windows" class="form-input">
+                            <option value="0">0 Windows</option>
+                            <option value="2" selected>2 Windows</option>
+                            <option value="4">4 Windows</option>
+                            <option value="6">6 Windows</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Real-time Stats Box -->
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <span class="stat-label">Footprint Area</span>
+                        <span id="stat-sqft" class="stat-val">1,200 sq ft</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Wall Area</span>
+                        <span id="stat-wall-area" class="stat-val">1,960 sq ft</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Eave Height</span>
+                        <span id="stat-eave" class="stat-val">14'</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Est. Peak Height</span>
+                        <span id="stat-peak" class="stat-val">19'</span>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button id="btn-open-inquiry" class="btn-primary cta-btn-full">Start CAD Blueprint Inquiry</button>
+            </aside>
+
+            <!-- 3D VIEWPORT CONTAINER (RIGHT) -->
+            <section id="viewport-container" class="viewport-container">
+                <canvas id="shop-canvas"></canvas>
+                
+                <div class="viewport-overlay">
+                    <button id="btn-reset-cam" class="viewport-btn">🔄 Reset View</button>
+                    <button id="btn-top-view" class="viewport-btn">📐 Top View</button>
+                </div>
+
+                <div class="viewport-hint">
+                    🖱️ Drag to rotate 360° &bull; Scroll to zoom &bull; Right-click to pan
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- INQUIRY MODAL -->
+    <div id="inquiry-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <button id="btn-close-modal" class="modal-close">&times;</button>
+            <h2 class="modal-title">Request CAD Blueprint & Quote</h2>
+            <p class="modal-subtitle">Submit your customized shop specifications to designer Rob Barnes. We will review your 3D design and contact you to begin the official CAD construction drawings.</p>
+
+            <div class="specs-summary-card">
+                <h4 style="margin-bottom:0.5rem; color:var(--accent-blue);">Selected Configuration</h4>
+                <div id="modal-specs-summary"></div>
+            </div>
+
+            <form id="inquiry-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label>Your Full Name *</label>
+                    <input type="text" id="user-name" class="form-input" placeholder="e.g. John Smith" required>
+                </div>
+                
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="user-email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="user-phone" class="form-input" placeholder="(360) 555-0199">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Building Site Location / Zip Code</label>
+                    <input type="text" id="user-location" class="form-input" placeholder="e.g. Ridgefield, WA 98642">
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Custom Details / Notes</label>
+                    <textarea id="user-notes" class="form-textarea" rows="3" placeholder="Tell us about special site conditions, interior lofts, electrical/plumbing needs, or desired construction start date..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="btn-send-inquiry" class="btn-primary">Email Specifications to Designer</button>
+                    <button id="btn-copy-specs" class="btn-secondary" type="button">Copy Specs</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer-wrapper">
+        <div id="footer">
+            <div class="footer-brand">
+                <h3>DESIGN SOLUTIONS</h3>
+                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <a href="/">Home</a>
+                <a href="/services/">Services</a>
+                <a href="/shops/">3D Shop Configurator</a>
+                <a href="/articles/">Articles</a>
+                <a href="/about/">About Us</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
+                <a href="tel:3606935161">360.693.5161</a>
+                <a href="/contact/">Schedule Consultation</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a target="_blank" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,">Google Reviews</a>
+                <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
+            </div>
+        </div>
+        <div id="footer-copyright">
+            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
