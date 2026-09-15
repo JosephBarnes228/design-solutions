@@ -3,108 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Home Plans | Design Solutions</title>
-    <meta name="description" content="Creating your dream home involves an interactive process addressing architectural style, layout, site constraints, budget, and engineering.">
+    <title>Custom Plans | Design Solutions</title>
+    <meta name="description" content="Creating your dream home involves an interactive process to address architectural style, layout, site constraints, budget, setting, and the message of the home.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
-    <link rel="stylesheet" href="../../style.css">
     <script src="../../styles/headerDisplay.js" defer></script>
+    <script src="../../styles/components.js" defer></script>
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+        <header id="header" class="header"></header>
 
-    <!-- HEADER NAVIGATION -->
-    <header id="header">
-        <nav id="navbar">
-            <div id="header-logo">
-                <img id="logo" src="../../img/logo.png" alt="Design Solutions Logo" onclick="window.location.href='../../'">
-            </div>
-            <ul id="links" class="links">
-                <li><a href="../../">Home</a></li>
-                <li><a href="../../services/">Services</a></li>
-                <li><a href="../../shops/">Shops 3D</a></li>
-                <li><a href="../../articles/">Articles</a></li>
-                <li><a href="../../about/">About</a></li>
-                <li class="desktop-invis"><a href="../../contact/">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
-                    <img src="../../img/linkedin.png" alt="LinkedIn">
-                </a>
-                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
-                    <img src="../../img/google.png" alt="Google">
-                </a>
-                <button id="header-contact" class="mobile-invis" onclick="window.location.href='../../contact/'">Contact Us</button>
-                <div class="hamburger">
-                    <div class="bars">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
+    <main class="main-container" style="max-width: 860px; margin: 3rem auto; padding: 0 1.5rem; flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <section class="glass-card page-content-card" style="padding: 3rem 2.5rem; border-radius: var(--radius-lg); width: 100%;">
+            <div class="detail-header" style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <h1 class="page-title" style="margin-bottom: 1.5rem; text-align: center;">Custom Plans</h1>
+                <div class="service-detail-image-wrapper" style="max-width: 720px; margin: 0 auto; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+                    <img src="../../img/custom-plan-drafting.jpg" alt="Custom Plans" class="detail-img" style="width: 100%; height: 360px; object-fit: cover;">
                 </div>
             </div>
-        </nav>
-    </header>
+            
+            <div class="prose-content">
 
-    <!-- SERVICE DETAIL MAIN CONTENT -->
-    <main class="section-container" style="margin-top: 3rem;">
-        <div class="section-header">
-            <h1 class="section-title">Custom Home Plans - The Design Process</h1>
-            <p class="section-subtitle">Transforming your ideas, lifestyle requirements, and site conditions into engineered construction blueprints.</p>
-        </div>
+                <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-bottom: 1rem;">How do I get started?</h3>
+                <p>
+                    Clients often come to our office with a decade of magazine clippings or internet articles in an effort to communicate what type of home they wish to build. Other clients have little more than a wish list and a confused look. Our goal is to assemble critical information such as budgetary constraints, site restrictions, architectural style, setting, and the message of the home. Consider the following descriptions: simple, elegant, no frills, modest, sophisticated, economical, asymmetrical, relaxed, and formal. After collecting the necessary elements that will shape the design and function of your home, we will begin the conceptual drawings.
+                </p>
 
-        <div class="why-grid glass-card" style="padding: 3.5rem; margin-bottom: 3rem;">
-            <div class="why-image-wrapper">
-                <img src="../../img/custom-plan-drafting.jpg" alt="Custom Architectural Blueprint Drafting">
+                <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-top: 2rem; margin-bottom: 1rem;">How will I be involved?</h3>
+                <p>
+                    We invite client participation and interaction! We understand that you are the home owner and you will be the one living there. Likewise, we realize that most people do not have the expertise it takes to create a well designed home. We begin by creating the initial drawings and presenting them to you for review and discussion. Issues and options are discussed at this point. The drawings will progress in a fluid stage moving toward a more refined and detailed plan over the course of several meetings. During this time, we strongly recommend that the client meet with prospective contractors who can provide an idea of construction costs. After the design has been finalized, structural drawings will be developed.
+                </p>
+
+                <h3 style="font-size: 1.5rem; color: #FFFFFF; margin-top: 2rem; margin-bottom: 1rem;">Will I need Engineering?</h3>
+                <p>
+                    During the initial consultation, we will discuss whether or not engineering will be needed. Some features in a home do not allow for prescriptive bracing and will require engineering. For instance, a large area in the home that is two stories tall without a second floor will trigger engineering. Another common element that will require engineering is when large wall sections have abundant window and door openings. While engineering is an additional up-front cost, there is often great benefit. Good engineers can simplify the construction process and actually save money in the field. Design Solutions has trusted relationships with several engineers that collaborate with us to make it a seamless, painless process.
+                </p>
+
             </div>
-            <div class="why-content">
-                <h3 style="font-size: 1.6rem; color: var(--accent-blue); margin-bottom: 0.75rem;">How Do I Get Started?</h3>
-                <p>Clients often come to our office with a decade of magazine clippings or internet articles in an effort to communicate what type of home they wish to build. Other clients have little more than a wish list. Our goal is to assemble critical information such as budgetary constraints, site restrictions, architectural style, setting, and the overarching theme of the home.</p>
 
-                <h3 style="font-size: 1.6rem; color: var(--accent-blue); margin-top: 1.5rem; margin-bottom: 0.75rem;">How Will I Be Involved?</h3>
-                <p>We invite client participation and interaction! We begin by creating initial floor plan and elevation concepts, moving fluidly toward refined detailed CAD drawings over the course of design meetings. We strongly recommend meeting with prospective contractors during this phase to maintain budget alignment.</p>
-
-                <h3 style="font-size: 1.6rem; color: var(--accent-blue); margin-top: 1.5rem; margin-bottom: 0.75rem;">Will I Need Structural Engineering?</h3>
-                <p>During our consultation, we will discuss whether structural engineering is required. Large vaulted wall sections or extensive window walls often require engineering oversight. Good engineering simplifies construction and saves money in the field. Design Solutions maintains trusted relationships with local structural engineers to ensure a seamless process.</p>
-
-                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                    <a href="../../contact/" class="btn-primary">Schedule Consultation</a>
-                    <a href="../../services/" class="btn-secondary">&larr; Back to Services</a>
-                </div>
+            <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="../" class="btn-secondary">&larr; Back to Services</a>
+                <a href="../../contact/" class="btn-primary">Consult With Designer</a>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer id="footer-wrapper">
-        <div id="footer">
-            <div class="footer-brand">
-                <h3>DESIGN SOLUTIONS</h3>
-                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <a href="../../">Home</a>
-                <a href="../../services/">Services</a>
-                <a href="../../shops/">3D Shop Configurator</a>
-                <a href="../../articles/">Articles</a>
-                <a href="../../about/">About Us</a>
-                <a href="../../contact/">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
-                <a href="tel:3606935161">360.693.5161</a>
-                <a href="../../contact/">Schedule Consultation</a>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <a target="_blank" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,">Google Reviews</a>
-                <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
-            </div>
-        </div>
-        <div id="footer-copyright">
-            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
-        </div>
-    </footer>
-
+    <footer id="footer"></footer>
 </body>
 </html>

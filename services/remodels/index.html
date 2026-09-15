@@ -4,104 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remodels & Additions | Design Solutions</title>
-    <meta name="description" content="Expert architectural design for additions and remodels that harmonize with your existing home to enhance efficiency, space, and aesthetic flow.">
+    <meta name="description" content="We have expertise in creating additions and remodels that harmonize with your existing home to enhance its efficiency, flow, space, style, and beauty.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
-    <link rel="stylesheet" href="../../style.css">
     <script src="../../styles/headerDisplay.js" defer></script>
+    <script src="../../styles/components.js" defer></script>
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+        <header id="header" class="header"></header>
 
-    <!-- HEADER NAVIGATION -->
-    <header id="header">
-        <nav id="navbar">
-            <div id="header-logo">
-                <img id="logo" src="../../img/logo.png" alt="Design Solutions Logo" onclick="window.location.href='../../'">
-            </div>
-            <ul id="links" class="links">
-                <li><a href="../../">Home</a></li>
-                <li><a href="../../services/">Services</a></li>
-                <li><a href="../../shops/">Shops 3D</a></li>
-                <li><a href="../../articles/">Articles</a></li>
-                <li><a href="../../about/">About</a></li>
-                <li class="desktop-invis"><a href="../../contact/">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
-                    <img src="../../img/linkedin.png" alt="LinkedIn">
-                </a>
-                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
-                    <img src="../../img/google.png" alt="Google">
-                </a>
-                <button id="header-contact" class="mobile-invis" onclick="window.location.href='../../contact/'">Contact Us</button>
-                <div class="hamburger">
-                    <div class="bars">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
+    <main class="main-container" style="max-width: 860px; margin: 3rem auto; padding: 0 1.5rem; flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <section class="glass-card page-content-card" style="padding: 3rem 2.5rem; border-radius: var(--radius-lg); width: 100%;">
+            <div class="detail-header" style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <h1 class="page-title" style="margin-bottom: 1.5rem; text-align: center;">Remodels & Additions</h1>
+                <div class="service-detail-image-wrapper" style="max-width: 720px; margin: 0 auto; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+                    <img src="../../img/remodel-before-after.jpg" alt="Remodels & Additions" class="detail-img" style="width: 100%; height: 360px; object-fit: cover;">
                 </div>
             </div>
-        </nav>
-    </header>
+            
+            <div class="prose-content">
 
-    <!-- MAIN CONTENT -->
-    <main class="section-container" style="margin-top: 3rem;">
-        <div class="section-header">
-            <h1 class="section-title">Remodels & Home Additions</h1>
-            <p class="section-subtitle">Harmonizing new living spaces with your existing structure for seamless aesthetic and functional flow.</p>
-        </div>
+                <p>
+                    When your home no longer meets your current needs, it may be time to consider a remodel or addition. For many people, moving or building a custom home may seem daunting or impractical. Perhaps you love your current home but just don’t have enough space; or perhaps you just want to upgrade the efficiency or flow of an older home in a great neighborhood. Maybe you are considering updating a kitchen or bathroom.
+                </p>
+                <p>
+                    It is our philosophy that an addition or remodel should harmonize with the existing home to such an extent that it should be imperceptible where the existing home stops and the remodel begins. How many times have you seen a poorly planned remodel or addition? A successful remodel takes advantage of the existing style of the home and enhances the general organization both inside and out.
+                </p>
+                <p>
+                    Upgrading a home can be a major investment, and with our help, you can be assured that your money will be spent wisely. A well planned addition or remodel can solve many problems as well as create a wonderful investment. This held true in the following example. Our client did not want to move due to the wonderful, close in, five acre setting. A home-based business located in one of the outbuildings also stood in the way of relocating. Our client utilized the side of the home which served as the sleeping quarters but wanted to create a much larger great room concept that took advantage of the view on the property. Our client was able to live on site in the right side while watching their dreams materialize before their eyes on the left!
+                </p>
 
-        <div class="why-grid glass-card" style="padding: 3.5rem; margin-bottom: 3rem;">
-            <div class="why-image-wrapper">
-                <img src="../../img/remodel-before-after.jpg" alt="Remodel Before and After Blueprint Transformation">
             </div>
-            <div class="why-content">
-                <h3 style="font-size: 1.6rem; color: var(--accent-blue); margin-bottom: 0.75rem;">Harmonious Integration</h3>
-                <p>It is our philosophy that an addition or remodel should harmonize with the existing home to such an extent that it is imperceptible where the original structure stops and the addition begins. A successful remodel takes advantage of the existing style while improving general flow and curb appeal.</p>
 
-                <h3 style="font-size: 1.6rem; color: var(--accent-blue); margin-top: 1.5rem; margin-bottom: 0.75rem;">Maximizing Your Investment</h3>
-                <p>Upgrading a home is a major investment. With proper architectural drafting, your money is spent wisely to solve functional challenges, expand living area, and increase long-term property resale value.</p>
-
-                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                    <a href="../../contact/" class="btn-primary">Discuss Your Remodel Project</a>
-                    <a href="../../services/" class="btn-secondary">&larr; Back to Services</a>
-                </div>
+            <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="../" class="btn-secondary">&larr; Back to Services</a>
+                <a href="../../contact/" class="btn-primary">Consult With Designer</a>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer id="footer-wrapper">
-        <div id="footer">
-            <div class="footer-brand">
-                <h3>DESIGN SOLUTIONS</h3>
-                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <a href="../../">Home</a>
-                <a href="../../services/">Services</a>
-                <a href="../../shops/">3D Shop Configurator</a>
-                <a href="../../articles/">Articles</a>
-                <a href="../../about/">About Us</a>
-                <a href="../../contact/">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
-                <a href="tel:3606935161">360.693.5161</a>
-                <a href="../../contact/">Schedule Consultation</a>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <a target="_blank" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,">Google Reviews</a>
-                <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
-            </div>
-        </div>
-        <div id="footer-copyright">
-            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
-        </div>
-    </footer>
-
+    <footer id="footer"></footer>
 </body>
 </html>

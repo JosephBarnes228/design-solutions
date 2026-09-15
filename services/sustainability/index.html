@@ -4,108 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustainability | Design Solutions</title>
-    <meta name="description" content="Sustainable home and shop design focusing on site development, water management, thermal envelope efficiency, and non-toxic material selection.">
+    <meta name="description" content="We design your home with sustainability in mind, considering site development, energy efficiency, and materials selection.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/globalStyles.css">
-    <link rel="stylesheet" href="../../style.css">
     <script src="../../styles/headerDisplay.js" defer></script>
+    <script src="../../styles/components.js" defer></script>
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+        <header id="header" class="header"></header>
 
-    <!-- HEADER NAVIGATION -->
-    <header id="header">
-        <nav id="navbar">
-            <div id="header-logo">
-                <img id="logo" src="../../img/logo.png" alt="Design Solutions Logo" onclick="window.location.href='../../'">
-            </div>
-            <ul id="links" class="links">
-                <li><a href="../../">Home</a></li>
-                <li><a href="../../services/">Services</a></li>
-                <li><a href="../../shops/">Shops 3D</a></li>
-                <li><a href="../../articles/">Articles</a></li>
-                <li><a href="../../about/">About</a></li>
-                <li class="desktop-invis"><a href="../../contact/">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
-                    <img src="../../img/linkedin.png" alt="LinkedIn">
-                </a>
-                <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
-                    <img src="../../img/google.png" alt="Google">
-                </a>
-                <button id="header-contact" class="mobile-invis" onclick="window.location.href='../../contact/'">Contact Us</button>
-                <div class="hamburger">
-                    <div class="bars">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
+    <main class="main-container" style="max-width: 860px; margin: 3rem auto; padding: 0 1.5rem; flex: 1; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <section class="glass-card page-content-card" style="padding: 3rem 2.5rem; border-radius: var(--radius-lg); width: 100%;">
+            <div class="detail-header" style="text-align: center; margin-bottom: 2.5rem; width: 100%;">
+                <h1 class="page-title" style="margin-bottom: 1.5rem; text-align: center;">Sustainability</h1>
+                <div class="service-detail-image-wrapper" style="max-width: 720px; margin: 0 auto; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-lg);">
+                    <img src="../../img/sustainability.jpg" alt="Sustainability" class="detail-img" style="width: 100%; height: 360px; object-fit: cover;">
                 </div>
             </div>
-        </nav>
-    </header>
+            
+            <div class="prose-content">
 
-    <!-- MAIN CONTENT -->
-    <main class="section-container" style="margin-top: 3rem;">
-        <div class="section-header">
-            <h1 class="section-title">Sustainability & Green Building</h1>
-            <p class="section-subtitle">Designing homes and shops with enduring quality, reduced utility overhead, and healthy indoor air quality.</p>
-        </div>
-
-        <div class="why-grid glass-card" style="padding: 3.5rem; margin-bottom: 3rem;">
-            <div class="why-image-wrapper">
-                <img src="../../img/sustainability.jpg" alt="Sustainable Architecture">
-            </div>
-            <div class="why-content">
-                <h3 style="font-size: 1.6rem; color: var(--accent-blue); margin-bottom: 0.75rem;">Core Principles of Sustainable Design</h3>
-                <p>At its core, sustainability means the capacity to endure. When applied to architectural design, it encompasses material selection, site development, building life cycle, and recurring energy consumption.</p>
-
-                <ul style="color:var(--text-secondary); margin-bottom: 1.5rem; padding-left:1.25rem;">
-                    <li style="margin-bottom:0.5rem;"><strong style="color:#FFF;">Site Solar Orientation:</strong> Maximizing natural passive heat gains in winter while shading hot summer rays.</li>
-                    <li style="margin-bottom:0.5rem;"><strong style="color:#FFF;">Centrally Located Utilities:</strong> Shortening plumbing runs and placing HVAC in conditioned space.</li>
-                    <li style="margin-bottom:0.5rem;"><strong style="color:#FFF;">Advanced Air Envelope Sealing:</strong> Preventing moisture penetration and drafts.</li>
-                    <li style="margin-bottom:0.5rem;"><strong style="color:#FFF;">Low-VOC Finishes:</strong> Ensuring clean, healthy indoor air quality for your family.</li>
+                <p>
+                    At the core, sustainability means “the capacity to endure.” When applied to architecture, it encompasses the materials that compose the building, the physical building site, the building’s life cycle and the perpetual expenses used to maintain the entire property. Energy efficient, sustainable homes aren’t adapted on the job site with insulation upgrades or Energy Star appliances. The critical time to consider energy efficiency, comfort, and sustainability begins at the design phase. Budget and site characteristics should determine the initial considerations for the size, style, orientation, and shell type of the home. The square footage and construction methods are closely linked to the overall cost of a home and significantly affect the total efficiency.
+                </p>
+                <p>
+                    Many people have heard the term “green building” or have seen the acronym LEED. The U.S. Green Building Council (USGBC) developed a system to rate and certify buildings based on measurable criteria. This system became known as LEED, or Leadership in Energy and Environmental Design. LEED focuses on five major points:
+                </p>
+                <ul class="custom-bullet-list">
+                    <li>Sustainable site development</li>
+                    <li>Water usage and disposal</li>
+                    <li>Energy efficiency</li>
+                    <li>Materials Selection</li>
+                    <li>Indoor environmental air quality</li>
                 </ul>
+                <p>
+                    Each of these five factors are highly entangled with one another. For instance, the site characteristics and setting should aid in determining many factors of the proposed home. Neighboring homes should be a cue to the style and general size. The house plan should be in harmony with the surrounding architecture. This will likely affect material selection and shell type and size. This will affect energy efficiency. Let’s use the five points of LEED to discuss ways in which preplanned design is critical.
+                </p>
+                <p>
+                    <strong>Sustainable site development</strong> – The site provides the foundation on which everything rests. Building placement creates a much larger impact than one might expect. Correctly orienting a home on the site can enhance passive solar heating and improve your ability to maintain the structure and landscape. Planting draught tolerant plants diminishes the need for irrigation while planting deciduous trees in specific locations can screen hot summer sun and even provide wind and view barriers.
+                </p>
+                <p>
+                    <strong>Water usage & disposal</strong> – Wasting water may seem insignificant in the Pacific Northwest, but it can affect your utility bills! Many designers overlook the placement of the water heater and HVAC systems. Placing these in centrally located, conditioned spaces significantly enhances their efficiency. How many times have you stood at a faucet waiting for the hot water? The type of landscaping and permeable surfaces will also affect the amount of irrigation and ground water quality.
+                </p>
+                <p>
+                    <strong>Energy efficiency</strong> – All factors converge when determining the energy consumption or savings that can be achieved. Besides the issues previously discussed, such considerations as HVAC, light fixtures, heat recovery ventilators, Energy Star appliances, windows (efficiency and orientation), insulation types, on demand water heaters, low flow toilets, and envelope sealing are but a few choices paramount to the comfort and sustainability of your new home.
+                </p>
+                <p>
+                    <strong>Materials selection & Indoor air quality</strong> – These are inextricably linked from a sustainability standpoint. Certain materials off-gas more than others and are more friendly of the environment. The shell type of your new home also affects both of these categories. Two alternate building methods (Insulated Concrete Forms and Structural Insulated Panels construction) have fewer toxins and are considerably more energy efficient, but the initial cost is more. Siding choices, paint colors, roofing types and interior finishes combine together dramatically to improve or detract from the sustainability of the home.
+                </p>
+                <p>
+                    Beyond the scope of size, style, budget, and location, there are easy, inexpensive ways to make your home more comfortable and energy efficient. Locating plumbing penetrations on interior walls or in the floor instead of exterior walls allows for more insulation. Minimizing utilities in exterior walls also helps. Small modifications in the trusses can dramatically increase the attic insulation near exterior walls. The designer should minimize the header sizes and eliminate wasted lumber so common in typical homes. This prevents temperature spikes by increasing the amount of insulation ratio compared to wood.
+                </p>
+                <p>
+                    These are only a few ways that a new home can be dramatically improved. Stock plans simply cannot address these important considerations. When spending several hundred thousand dollars on a new home, wouldn’t it be a great idea to get just the right design by spending a fraction of the cost on a purposeful home plan?
+                </p>
 
-                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                    <a href="../../contact/" class="btn-primary">Consult on Sustainable Design</a>
-                    <a href="../../services/" class="btn-secondary">&larr; Back to Services</a>
-                </div>
             </div>
-        </div>
+
+            <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="../" class="btn-secondary">&larr; Back to Services</a>
+                <a href="../../contact/" class="btn-primary">Consult With Designer</a>
+            </div>
+        </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer id="footer-wrapper">
-        <div id="footer">
-            <div class="footer-brand">
-                <h3>DESIGN SOLUTIONS</h3>
-                <p>Vancouver & Pacific NW residential design firm specializing in energy-efficient custom home plans, remodels, additions, and custom shops.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <a href="../../">Home</a>
-                <a href="../../services/">Services</a>
-                <a href="../../shops/">3D Shop Configurator</a>
-                <a href="../../articles/">Articles</a>
-                <a href="../../about/">About Us</a>
-                <a href="../../contact/">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
-                <a href="tel:3606935161">360.693.5161</a>
-                <a href="../../contact/">Schedule Consultation</a>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <a target="_blank" href="https://www.google.com/search?q=design+solutions+ridgefield+washington&rlz=1C1CHBF_enUS889US889&oq=design+solutions&aqs=chrome.1.69i59j35i39j0i512l4j69i61l2.5600j0j9&sourceid=chrome&ie=UTF-8#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,,">Google Reviews</a>
-                <a target="_blank" href="https://www.linkedin.com/in/rob-barnes-83904142">LinkedIn</a>
-            </div>
-        </div>
-        <div id="footer-copyright">
-            © Copyright Design Solutions - Custom Home & Shop Design. All Rights Reserved.
-        </div>
-    </footer>
-
+    <footer id="footer"></footer>
 </body>
 </html>
