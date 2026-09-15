@@ -15,40 +15,68 @@
     <!-- HEADER NAVIGATION -->
         <header id="header" class="header"></header>
 
-    <!-- SPLASHY HERO SECTION -->
-    <section class="hero-container">
-        <div class="hero-overlay"></div>
-        <div class="hero-content glass-card">
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                Residential Design Firm &bull; Vancouver, WA
-            </div>
-            <h1 class="hero-title">Custom Residential Home Design & Architectural Blueprints</h1>
-            <p class="hero-subtitle">Design Solutions focuses on energy-efficient, sustainable custom homes specifically tailored to our clients' individual needs, budget, and building site. Serving Vancouver, Clark County, Portland, and the surrounding Pacific Northwest.</p>
-            
-            <div class="hero-actions">
-                <a href="services/" class="btn-primary btn-splash">Explore Home Design Services</a>
-                <a href="shops/" class="btn-secondary">⚡ 3D Shop Configurator</a>
-                <a href="contact/" class="btn-secondary">Schedule Consultation</a>
+    <!-- IMAGERY-FOCUSED HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-inner">
+            <!-- Left Text & CTAs -->
+            <div class="hero-left">
+                <div class="hero-location-tag">
+                    Vancouver, WA &bull; Pacific Northwest
+                </div>
+                <h1 class="hero-main-title">Custom Home Design & Blueprints</h1>
+                <p class="hero-main-description">
+                    Over 20 years of crafting energy-efficient, site-tailored residential plans and custom shops for homeowners and contractors across the Pacific Northwest.
+                </p>
+                
+                <div class="hero-cta-group">
+                    <a href="shops/" class="btn-primary">Try 3D Shop Configurator</a>
+                    <a href="services/" class="btn-secondary">Explore Services</a>
+                </div>
+
+                <div class="hero-trust-list">
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Site-Tailored Plans</span>
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Energy Efficient</span>
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Permit Blueprints</span>
+                </div>
             </div>
 
-            <!-- Stats Bar -->
-            <div class="hero-stats-row">
-                <div class="hero-stat-card">
-                    <div class="hero-stat-number">20+ Years</div>
-                    <div class="hero-stat-label">Architectural Experience</div>
-                </div>
-                <div class="hero-stat-card">
-                    <div class="hero-stat-number">100% Custom</div>
-                    <div class="hero-stat-label">Tailored to Site & Budget</div>
-                </div>
-                <div class="hero-stat-card">
-                    <div class="hero-stat-number">Sustainable</div>
-                    <div class="hero-stat-label">Energy Efficient Design</div>
+            <!-- Right Visual Gallery Showcase -->
+            <div class="hero-right">
+                <div class="hero-gallery-card glass-card">
+                    <div class="hero-gallery-view">
+                        <img id="hero-showcase-img" src="./img/slide1.jpg" alt="Custom Home Design Showcase">
+                        <div id="hero-showcase-badge" class="hero-gallery-overlay-badge">
+                            Custom Residence Concept
+                        </div>
+                    </div>
+                    
+                    <div class="hero-gallery-nav">
+                        <button class="hero-nav-tab active" onclick="switchHeroImg('./img/slide1.jpg', 'Custom Residence Concept', this)">Custom Homes</button>
+                        <button class="hero-nav-tab" onclick="switchHeroImg('./img/software.jpg', '3D Shop Configurator', this)">3D Shops</button>
+                        <button class="hero-nav-tab" onclick="switchHeroImg('./img/custom-plan.jpg', 'Architectural Blueprints & 3D', this)">Blueprints</button>
+                        <button class="hero-nav-tab" onclick="switchHeroImg('./img/remodel-before-after.jpg', 'Remodels & Additions', this)">Remodels</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        function switchHeroImg(src, label, btn) {
+            const img = document.getElementById('hero-showcase-img');
+            const badge = document.getElementById('hero-showcase-badge');
+            if (!img) return;
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = src;
+                if (badge) badge.textContent = label;
+                img.style.opacity = '1';
+            }, 150);
+            const tabs = document.querySelectorAll('.hero-nav-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+    </script>
 
     <!-- ABOUT / WHY CHOOSE US SECTION -->
     <section class="section-container" style="margin-top: 4rem;">
