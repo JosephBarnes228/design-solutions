@@ -161,15 +161,28 @@ a:hover {
     transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
 }
 
-.links li a:hover,
-.links li a.active {
+.links li a:hover {
     color: #FFFFFF;
     background-color: rgba(255, 255, 255, 0.08);
 }
 
 .links li a.active {
-    border-bottom: 2px solid var(--accent-blue);
-    background: rgba(56, 189, 248, 0.1);
+    color: #38BDF8 !important;
+    background: transparent !important;
+    font-weight: 700 !important;
+    position: relative;
+}
+
+.links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #38BDF8;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #38BDF8;
 }
 
 /* Nav Social & Contact Buttons */

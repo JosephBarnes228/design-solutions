@@ -12,7 +12,7 @@
     var depth = parts.length;
     var r = depth === 0 ? './' : '../'.repeat(depth);
 
-    var homeLink = r + 'index.html';
+    var homeLink = r;
     var servicesLink = r + 'services/';
     var shopsLink = r + 'shops/';
     var articlesLink = r + 'articles/';
@@ -22,6 +22,29 @@
     var linkedinImg = r + 'img/linkedin.png';
     var googleImg = r + 'img/google.png';
 
+    // Clean up address bar if URL explicitly contains index.html
+    if (window.location.pathname.endsWith('/index.html')) {
+        var cleanPath = window.location.pathname.replace(/index\.html$/, '');
+        if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+        }
+    }
+
+    var pNorm = window.location.pathname.toLowerCase().replace(/\\/g, '/');
+    var isServices = (pNorm.indexOf('/services') !== -1);
+    var isShops = (pNorm.indexOf('/shops') !== -1);
+    var isArticles = (pNorm.indexOf('/articles') !== -1);
+    var isAbout = (pNorm.indexOf('/about') !== -1);
+    var isContact = (pNorm.indexOf('/contact') !== -1);
+    var isHome = (!isServices && !isShops && !isArticles && !isAbout && !isContact);
+
+    var homeActive = isHome ? 'class="active"' : '';
+    var servicesActive = isServices ? 'class="active"' : '';
+    var shopsActive = isShops ? 'class="active"' : '';
+    var articlesActive = isArticles ? 'class="active"' : '';
+    var aboutActive = isAbout ? 'class="active"' : '';
+    var contactActive = isContact ? 'active' : '';
+
     // Universal Header Component Markup (No duplicate Contact in ul#links)
     var headerHTML = `
         <nav id="navbar">
@@ -29,11 +52,11 @@
                 <a href="${homeLink}"><img id="logo" src="${logoImg}" alt="Design Solutions Logo"></a>
             </div>
             <ul id="links" class="links">
-                <li><a href="${homeLink}">Home</a></li>
-                <li><a href="${servicesLink}">Services</a></li>
-                <li><a href="${shopsLink}">3D Shop Configurator</a></li>
-                <li><a href="${articlesLink}">Articles</a></li>
-                <li><a href="${aboutLink}">About</a></li>
+                <li><a href="${homeLink}" ${homeActive}>Home</a></li>
+                <li><a href="${servicesLink}" ${servicesActive}>Services</a></li>
+                <li><a href="${shopsLink}" ${shopsActive}>3D Shop Configurator</a></li>
+                <li><a href="${articlesLink}" ${articlesActive}>Articles</a></li>
+                <li><a href="${aboutLink}" ${aboutActive}>About</a></li>
             </ul>
             <div class="nav-actions">
                 <a class="social-icon-btn mobile-invis" href="https://www.linkedin.com/in/rob-barnes-83904142" target="_blank" title="LinkedIn">
@@ -42,7 +65,7 @@
                 <a class="social-icon-btn mobile-invis" href="https://www.google.com/search?q=design+solutions+ridgefield+washington#lrd=0x5495ad154a55151f:0xeeca93b6a80696ab,1,,," target="_blank" title="Google Reviews">
                     <img src="${googleImg}" alt="Google Reviews">
                 </a>
-                <a href="${contactLink}" class="btn-primary" id="header-contact">Contact Us</a>
+                <a href="${contactLink}" class="btn-primary ${contactActive}" id="header-contact">Contact Us</a>
                 <div class="hamburger" id="hamburger-btn">
                     <div class="bars">
                         <div></div>
@@ -96,43 +119,9 @@
             footerElem.innerHTML = footerHTML;
         }
 
-        // Highlight Active Page Link in Navbar
-        var p = window.location.pathname.toLowerCase().replace(/\\/g, '/');
-        var navLinks = document.querySelectorAll('#links li a');
         var contactBtn = document.getElementById('header-contact');
-        
-        var isServices = (p.indexOf('/services') !== -1);
-        var isShops = (p.indexOf('/shops') !== -1);
-        var isArticles = (p.indexOf('/articles') !== -1);
-        var isAbout = (p.indexOf('/about') !== -1);
-        var isContact = (p.indexOf('/contact') !== -1);
-        var isHome = (!isServices && !isShops && !isArticles && !isAbout && !isContact);
-
-        navLinks.forEach(function(link) {
-            link.classList.remove('active');
-            var text = link.textContent.trim().toLowerCase();
-            
-            if (isHome && text === 'home') {
-                link.classList.add('active');
-            } else if (isServices && text === 'services') {
-                link.classList.add('active');
-            } else if (isShops && text.indexOf('shop') !== -1) {
-                link.classList.add('active');
-            } else if (isArticles && text === 'articles') {
-                link.classList.add('active');
-            } else if (isAbout && text === 'about') {
-                link.classList.add('active');
-            }
-        });
-
-        if (contactBtn) {
-            if (isContact) {
-                contactBtn.classList.add('active');
-                contactBtn.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.6)';
-            } else {
-                contactBtn.classList.remove('active');
-                contactBtn.style.boxShadow = '';
-            }
+        if (contactBtn && isContact) {
+            contactBtn.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.6)';
         }
 
         // Mobile Hamburger toggle
