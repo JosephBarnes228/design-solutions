@@ -1,1 +1,1 @@
-Sitemap: https://designsolutionsnw.com/sitemap.txt
+Sitemap: https://designsolutionsnw.com/sitemap.xml

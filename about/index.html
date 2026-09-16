@@ -9,6 +9,34 @@
     <link rel="stylesheet" href="../style.css">
     <script src="../styles/headerDisplay.js" defer></script>
     <script src="../styles/components.js" defer></script>
+    <!-- Canonical & Social Meta Tags -->
+    <link rel="canonical" href="https://designsolutionsnw.com/about/">
+    <meta property="og:title" content="About Us | Design Solutions Vancouver WA">
+    <meta property="og:description" content="Residential architectural design firm with over 20 years experience crafting custom house plans and outbuilding designs in the Pacific Northwest.">
+    <meta property="og:image" content="https://designsolutionsnw.com/img/slide1.jpg">
+    <meta property="og:url" content="https://designsolutionsnw.com/about/">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- JSON-LD AboutPage & Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Rob Barnes",
+        "jobTitle": "Principal Architectural Designer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Design Solutions",
+          "url": "https://designsolutionsnw.com"
+        },
+        "description": "Rob Barnes has over 20 years of architectural drafting and residential design experience crafting energy-efficient custom homes, remodels, and shops in Vancouver WA."
+      }
+    }
+    </script>
+    <link rel="icon" type="image/png" href="../img/logo.png">
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
 
@@ -24,7 +52,7 @@
 
         <div class="why-grid glass-card" style="padding: 3.5rem; margin-bottom: 3.5rem;">
             <div class="why-image-wrapper" style="max-width: 440px;">
-                <img src="../img/headshot.jpg" alt="Rob Barnes - Architectural Designer">
+                <img loading="lazy" src="../img/headshot.jpg" alt="Rob Barnes - Architectural Designer">
             </div>
             <div class="why-content">
                 <h3>Rob Barnes - Principal Designer</h3>

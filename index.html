@@ -9,6 +9,100 @@
     <link rel="stylesheet" href="style.css">
     <script src="styles/headerDisplay.js" defer></script>
     <script src="./styles/components.js" defer></script>
+    <!-- Canonical & Social Meta Tags -->
+    <link rel="canonical" href="https://designsolutionsnw.com/">
+    <meta property="og:title" content="Design Solutions - Custom Home Design Firm in Vancouver WA">
+    <meta property="og:description" content="Architectural design firm specializing in energy-efficient custom home design, 3D modeling, remodels, additions, and blueprints for homeowners in Vancouver WA & Pacific NW.">
+    <meta property="og:image" content="https://designsolutionsnw.com/img/slide1.jpg">
+    <meta property="og:url" content="https://designsolutionsnw.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Design Solutions - Custom Home Design & 3D Shops">
+    <meta name="twitter:description" content="Over 20 years crafting energy-efficient residential floor plans, remodels, and 3D shop blueprints across the Pacific NW.">
+    <meta name="twitter:image" content="https://designsolutionsnw.com/img/slide1.jpg">
+
+    <!-- JSON-LD LocalBusiness & ArchitecturalService Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArchitecturalService",
+      "name": "Design Solutions",
+      "image": "https://designsolutionsnw.com/img/slide1.jpg",
+      "@id": "https://designsolutionsnw.com/#organization",
+      "url": "https://designsolutionsnw.com",
+      "telephone": "+1-360-693-5161",
+      "email": "designguyrob@gmail.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5003 NW 189th Street",
+        "addressLocality": "Ridgefield",
+        "addressRegion": "WA",
+        "postalCode": "98642",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.7645,
+        "longitude": -122.6958
+      },
+      "areaServed": [
+        "Vancouver WA",
+        "Ridgefield WA",
+        "Clark County WA",
+        "Pacific Northwest"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Rob Barnes",
+        "jobTitle": "Principal Architectural Designer"
+      },
+      "description": "Vancouver & Ridgefield WA residential design firm specializing in energy-efficient custom home plans, remodels, and interactive 3D shop blueprints."
+    }
+    </script>
+
+    <!-- JSON-LD FAQ Schema (AEO Engine Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why choose custom home design over consumer stock software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consumer software cannot adequately address local Clark County building codes, structural engineering, slope constraints, or solar orientation. Professional drafting optimizes floor plan flow and material conservation while delivering permit-ready blueprints."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services does Design Solutions provide in Vancouver WA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide custom house plans, home remodel & addition designs, stock house plan modifications, site planning, building envelope optimization, and an interactive 3D shop configurator for pole barns and workshops."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the interactive 3D Shop Configurator work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our WebGL 3D tool allows you to customize length, width, wall height, roof styles, siding colors, and overhead garage door layouts. Once finalized, you can submit your exact specs directly to Rob Barnes for CAD blueprint creation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Design Solutions located and what areas do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are located at 5003 NW 189th Street, Ridgefield, WA 98642, serving homeowners and contractors throughout Vancouver, Ridgefield, Clark County, and the broader Pacific Northwest."
+          }
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
 
@@ -94,7 +188,7 @@
                 <a href="about/" class="btn-secondary">Learn More About Our Firm</a>
             </div>
             <div class="why-image-wrapper">
-                <img src="img/software.jpg" alt="Architectural Drafting & CAD Design">
+                <img loading="lazy" src="img/software.jpg" alt="Architectural Drafting & CAD Design">
             </div>
         </div>
     </section>
@@ -109,7 +203,7 @@
                 <a href="shops/" class="btn-primary">Launch 3D Configurator &rarr;</a>
             </div>
             <div class="teaser-preview-box">
-                <img src="img/slide1.jpg" alt="3D Shop Preview">
+                <img loading="lazy" src="img/slide1.jpg" alt="3D Shop Preview">
                 <div class="teaser-preview-badge">Real-Time 3D Rendering</div>
             </div>
         </div>
@@ -126,76 +220,77 @@
             <!-- Service 1: Custom Home Plans -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='services/custom-plans/'">
                 <div class="service-card-img">
-                    <img src="img/custom-plan.jpg" alt="Custom Home Plans">
+                    <img loading="lazy" src="img/custom-plan.jpg" alt="Custom Home Plans">
                 </div>
                 <div class="service-card-body">
                     <h3>Custom Home Plans</h3>
                     <p>Bespoke house plans crafted specifically for your family's lifestyle, site orientation, and financial goals.</p>
-                    <span class="service-card-link">Explore Custom Plans &rarr;</span>
+                    <a href="services/custom-plans/" class="service-card-link">Explore Custom Plans &rarr;</a>
                 </div>
             </div>
 
             <!-- Service 2: Remodels & Additions -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='services/remodels/'">
                 <div class="service-card-img">
-                    <img src="img/remodel.jpg" alt="Home Remodels & Additions">
+                    <img loading="lazy" src="img/remodel.jpg" alt="Home Remodels & Additions">
                 </div>
                 <div class="service-card-body">
                     <h3>Remodels & Additions</h3>
                     <p>Seamlessly integrate new living spaces, master suites, or second-story additions to existing homes.</p>
-                    <span class="service-card-link">Explore Remodels &rarr;</span>
+                    <a href="services/remodels/" class="service-card-link">Explore Remodels &rarr;</a>
                 </div>
             </div>
 
             <!-- Service 3: Stock Plans -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='services/stock-plans/'">
                 <div class="service-card-img">
-                    <img src="img/blueprint.jpg" alt="Stock Blueprints">
+                    <img loading="lazy" src="img/blueprint.jpg" alt="Stock Blueprints">
                 </div>
                 <div class="service-card-body">
                     <h3>Stock House Plans</h3>
                     <p>Pre-designed, construction-ready blueprints that can be modified to fit your local building lot.</p>
-                    <span class="service-card-link">View Stock Plans &rarr;</span>
+                    <a href="services/stock-plans/" class="service-card-link">View Stock Plans &rarr;</a>
                 </div>
             </div>
 
             <!-- Service 4: Site Design -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='services/site-design/'">
                 <div class="service-card-img">
-                    <img src="img/site-design.jpg" alt="Site Design & Planning">
+                    <img loading="lazy" src="img/site-design.jpg" alt="Site Design & Planning">
                 </div>
                 <div class="service-card-body">
                     <h3>Site Design</h3>
                     <p>Optimize house placement for solar exposure, views, privacy, slope integration, and local setbacks.</p>
-                    <span class="service-card-link">View Site Planning &rarr;</span>
+                    <a href="services/site-design/" class="service-card-link">View Site Planning &rarr;</a>
                 </div>
             </div>
 
             <!-- Service 5: Sustainability -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='services/sustainability/'">
                 <div class="service-card-img">
-                    <img src="img/sustainability.jpg" alt="Sustainability & Energy Efficiency">
+                    <img loading="lazy" src="img/sustainability.jpg" alt="Sustainability & Energy Efficiency">
                 </div>
                 <div class="service-card-body">
                     <h3>Sustainability</h3>
                     <p>Energy-efficient materials, passive heating/cooling strategies, and long-term utility conservation.</p>
-                    <span class="service-card-link">Explore Sustainability &rarr;</span>
+                    <a href="services/sustainability/" class="service-card-link">Explore Sustainability &rarr;</a>
                 </div>
             </div>
 
             <!-- Service 6: Building Envelopes -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='services/building-envelopes/'">
                 <div class="service-card-img">
-                    <img src="img/passive-solar.jpg" alt="Building Envelopes & Wall Assemblies">
+                    <img loading="lazy" src="img/passive-solar.jpg" alt="Building Envelopes & Wall Assemblies">
                 </div>
                 <div class="service-card-body">
                     <h3>Building Envelopes</h3>
                     <p>Advanced insulation detailing, ICF, timber framing, and thermal performance optimization.</p>
-                    <span class="service-card-link">Explore Envelopes &rarr;</span>
+                    <a href="services/building-envelopes/" class="service-card-link">Explore Envelopes &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- FOOTER -->
     <footer id="footer"></footer>

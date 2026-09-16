@@ -12,6 +12,38 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="email.js" defer></script>
     <script src="../styles/components.js" defer></script>
+    <!-- Canonical & Social Meta Tags -->
+    <link rel="canonical" href="https://designsolutionsnw.com/contact/">
+    <meta property="og:title" content="Contact Us | Design Solutions Vancouver WA">
+    <meta property="og:description" content="Get in touch with Design Solutions in Ridgefield WA. Phone: (360) 693-5161, Email: designguyrob@gmail.com for custom home plans and 3D shop blueprints.">
+    <meta property="og:image" content="https://designsolutionsnw.com/img/slide1.jpg">
+    <meta property="og:url" content="https://designsolutionsnw.com/contact/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- JSON-LD ContactPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "name": "Design Solutions",
+        "telephone": "+1-360-693-5161",
+        "email": "designguyrob@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "5003 NW 189th Street",
+          "addressLocality": "Ridgefield",
+          "addressRegion": "WA",
+          "postalCode": "98642",
+          "addressCountry": "US"
+        },
+        "hasMap": "https://goo.gl/maps/Li284h7ZiT6ZJy8w5"
+      }
+    }
+    </script>
+    <link rel="icon" type="image/png" href="../img/logo.png">
 </head>
 <body>
 
@@ -63,17 +95,17 @@
                 <form id="form" onsubmit="return false;">
                     <div class="form-group">
                         <label>Your Name <i>*</i></label>
-                        <input type="text" name="from_user" id="fullname" class="form-input" placeholder="e.g. John Smith" required>
+                        <input type="text" name="from_user" id="fullname" class="form-input" aria-label="Your Full Name" autocomplete="name" placeholder="e.g. John Smith" required>
                     </div>
 
                     <div class="form-group">
                         <label>Email Address <i>*</i></label>
-                        <input type="email" name="from_user_email" id="email" class="form-input" placeholder="you@example.com" required>
+                        <input type="email" name="from_user_email" id="email" class="form-input" aria-label="Email Address" autocomplete="email" placeholder="you@example.com" required>
                     </div>
 
                     <div class="form-group">
                         <label>Message <i>*</i></label>
-                        <textarea name="message" id="message" class="form-textarea" rows="5" placeholder="Tell us about your home design goals, lot location, or project timeline..." required></textarea>
+                        <textarea name="message" id="message" class="form-textarea" aria-label="Your Message" autocomplete="off" rows="5" placeholder="Tell us about your home design goals, lot location, or project timeline..." required></textarea>
                     </div>
 
                     <button id="send-button" type="submit" class="btn-primary">Send Message</button>

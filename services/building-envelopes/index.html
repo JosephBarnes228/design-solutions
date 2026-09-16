@@ -12,6 +12,45 @@
     <link rel="stylesheet" href="./style.css">
     <script src="../../styles/headerDisplay.js" defer></script>
     <script src="../../styles/components.js" defer></script>
+    <!-- Canonical & Social Meta Tags -->
+    <link rel="canonical" href="https://designsolutionsnw.com/services/building-envelopes/">
+    <meta property="og:title" content="Building Envelopes & Assemblies | Design Solutions">
+    <meta property="og:description" content="High-performance building envelope drafting, advanced framing, ICF, timber framing, and thermal efficiency optimization.">
+    <meta property="og:image" content="https://designsolutionsnw.com/img/passive-solar.jpg">
+    <meta property="og:url" content="https://designsolutionsnw.com/services/building-envelopes/">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building Envelopes & Assemblies | Design Solutions">
+    <meta name="twitter:description" content="High-performance building envelope drafting, advanced framing, ICF, timber framing, and thermal efficiency optimization.">
+    <meta name="twitter:image" content="https://designsolutionsnw.com/img/passive-solar.jpg">
+
+    <!-- JSON-LD Service & Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Building Envelopes",
+      "provider": {
+        "@type": "ArchitecturalService",
+        "name": "Design Solutions",
+        "url": "https://designsolutionsnw.com"
+      },
+      "areaServed": "Vancouver WA & Pacific Northwest",
+      "description": "High-performance building envelope drafting, advanced framing, ICF, timber framing, and thermal efficiency optimization."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://designsolutionsnw.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://designsolutionsnw.com/services/"},
+        {"@type": "ListItem", "position": 3, "name": "Building Envelopes", "item": "https://designsolutionsnw.com/services/building-envelopes/"}
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/png" href="../../img/logo.png">
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
         <header id="header" class="header"></header>
@@ -25,7 +64,7 @@
         <div class="envelopes-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; width: 100%; justify-content: center; align-items: stretch;">
             <!-- Card 1: Advanced Framing -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='./advanced-framing/'" style="text-align: center; display: flex; flex-direction: column; margin: 0 auto; width: 100%; max-width: 440px;">
-                <img src="../../img/advanced-framing.jpg" alt="Advanced Framing" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
+                <img loading="lazy" src="../../img/advanced-framing.jpg" alt="Advanced Framing" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
                 <div class="card-body" style="padding: 2rem 1.75rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1; text-align: center;">
                     <div>
                         <h3 style="color: #FFFFFF; font-size: 1.45rem; margin-bottom: 0.75rem; text-align: center;">Advanced Framing</h3>
@@ -41,7 +80,7 @@
 
             <!-- Card 2: Passive Solar -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='./passive-solar/'" style="text-align: center; display: flex; flex-direction: column; margin: 0 auto; width: 100%; max-width: 440px;">
-                <img src="../../img/passive-solar.jpg" alt="Passive Solar" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
+                <img loading="lazy" src="../../img/passive-solar.jpg" alt="Passive Solar" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
                 <div class="card-body" style="padding: 2rem 1.75rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1; text-align: center;">
                     <div>
                         <h3 style="color: #FFFFFF; font-size: 1.45rem; margin-bottom: 0.75rem; text-align: center;">Passive Solar</h3>
@@ -57,7 +96,7 @@
 
             <!-- Card 3: Timber Framing -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='./timber-framing/'" style="text-align: center; display: flex; flex-direction: column; margin: 0 auto; width: 100%; max-width: 440px;">
-                <img src="../../img/timber-framing.jpg" alt="Timber Framing" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
+                <img loading="lazy" src="../../img/timber-framing.jpg" alt="Timber Framing" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
                 <div class="card-body" style="padding: 2rem 1.75rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1; text-align: center;">
                     <div>
                         <h3 style="color: #FFFFFF; font-size: 1.45rem; margin-bottom: 0.75rem; text-align: center;">Timber Framing</h3>
@@ -73,7 +112,7 @@
 
             <!-- Card 4: Insulated Concrete Forms -->
             <div class="service-card glass-card glass-card-interactive" onclick="window.location.href='./insulated-concrete-forms/'" style="text-align: center; display: flex; flex-direction: column; margin: 0 auto; width: 100%; max-width: 440px;">
-                <img src="../../img/icf.jpg" alt="Insulated Concrete Forms" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
+                <img loading="lazy" src="../../img/icf.jpg" alt="Insulated Concrete Forms" class="card-img" style="height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; width: 100%;">
                 <div class="card-body" style="padding: 2rem 1.75rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1; text-align: center;">
                     <div>
                         <h3 style="color: #FFFFFF; font-size: 1.45rem; margin-bottom: 0.75rem; text-align: center;">Insulated Concrete Forms</h3>
