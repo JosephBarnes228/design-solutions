@@ -97,7 +97,7 @@
                 <h4>Contact Us</h4>
                 <a href="mailto:designguyrob@gmail.com">designguyrob@gmail.com</a>
                 <a href="tel:3606935161">360.693.5161</a>
-                <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.9rem;">Ridgefield, Washington</p>
+                <a target="_blank" href="https://maps.app.goo.gl/kJdmKq2Xvoxm1zLp9">Driving Directions</a>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
@@ -124,12 +124,32 @@
             contactBtn.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.6)';
         }
 
-        // Mobile Hamburger toggle
+        // Mobile Hamburger toggle (Single source of truth)
         var hamburgerBtn = document.getElementById('hamburger-btn');
         var linksContainer = document.getElementById('links');
         if (hamburgerBtn && linksContainer) {
-            hamburgerBtn.addEventListener('click', function() {
-                linksContainer.classList.toggle('responsive');
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var isOpen = linksContainer.classList.toggle('responsive');
+                var bars = hamburgerBtn.querySelectorAll('.bars div');
+                bars.forEach(function(bar) {
+                    if (isOpen) {
+                        bar.classList.add('x');
+                    } else {
+                        bar.classList.remove('x');
+                    }
+                });
+            });
+
+            var mobileNavLinks = linksContainer.querySelectorAll('a');
+            mobileNavLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    linksContainer.classList.remove('responsive');
+                    var bars = hamburgerBtn.querySelectorAll('.bars div');
+                    bars.forEach(function(bar) {
+                        bar.classList.remove('x');
+                    });
+                });
             });
         }
     }
